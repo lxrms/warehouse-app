@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'Visitor opens homepage' do
   it 'and sees a welcome message' do
     visit root_path
-    # expect(page).to have_content 'Boas vindas ao WareHouse App'
-    expect(page).to have_css 'h1', text: 'Boas vindas ao WareHouse App'
+    expect(page).to have_css 'h1', text: 'WareHouse App'
+    expect(page).to have_css 'h3', text: 'Boas vindas ao sistema de gestão de estoques'
   end
 
   it 'and sees registered warehouses' do
@@ -18,6 +18,7 @@ describe 'Visitor opens homepage' do
     visit root_path
     
     # Assert
+    expect(page).to have_content 'Galpões Cadastrados'
     expect(page).to have_content 'Guarulhos'
     expect(page).to have_content 'GRU'
     expect(page).to have_content 'Porto Alegre'
