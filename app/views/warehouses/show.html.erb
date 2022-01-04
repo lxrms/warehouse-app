@@ -1,10 +1,22 @@
-<%= @warehouse.name %>
-<%= @warehouse.code %>
-<%= @warehouse.description %>
-<%= @warehouse.address %>
-<%= @warehouse.city %>/<%= @warehouse.state %>
-CEP: <%= @warehouse.postal_code %>
-Área Total: <%= @warehouse.total_area %> m²
-Área Útil: <%= @warehouse.useful_area %> m²
+<h1><%= @warehouse.name %></h1>
+<h2><%= @warehouse.code %></h2>
+
+<dl>
+  <dt>Descrição:</dt>
+  <dd><%= @warehouse.description %></dd>
+  
+  <dt>Endereço:</dt>
+  <dd><%= @warehouse.address %> - <%= @warehouse.city %>/<%= @warehouse.state %></dd>
+
+  <dt>CEP:</dt>
+  <dd><%= @warehouse.postal_code %></dd>
+
+  <dt>Área Total:</dt>
+  <dd><%= @warehouse.total_area %> m²</dd>
+
+  <dt>Área Útil:</dt>
+  <dd><%= @warehouse.useful_area %> m²</dd>
+</dl>
+
 
 <%= link_to 'Voltar', root_path %>
