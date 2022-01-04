@@ -1,0 +1,8 @@
+<h1>Boas vindas ao WareHouse App</h1>
+
+<dl>
+  <% @warehouses.each do |warehouse| %>
+    <dt><%= warehouse.name %></dt>
+    <dd><%= warehouse.code %></dd>
+  <% end %>
+</dl>
