@@ -9,10 +9,10 @@ describe 'Visitor opens homepage' do
 
   it 'and sees registered warehouses' do
     # Arrange
-    Warehouse.new(name: 'Guarulhos', code: 'GRU').save
-    Warehouse.new(name: 'Porto Alegre', code: 'POA').save
-    Warehouse.new(name: 'São Luís', code: 'SLZ').save
-    Warehouse.new(name: 'Vitória', code: 'VIX').save
+    Warehouse.create name: 'Guarulhos', code: 'GRU'
+    Warehouse.create name: 'Porto Alegre', code: 'POA'
+    Warehouse.create name: 'São Luís', code: 'SLZ'
+    Warehouse.create name: 'Vitória', code: 'VIX'
     
     # Act
     visit root_path
@@ -28,5 +28,8 @@ describe 'Visitor opens homepage' do
     expect(page).to have_content 'Vitória'
     expect(page).to have_content 'VIX'
 
+  end
+
+  it 'and there aren\'t registered warehouses' do
   end
 end
