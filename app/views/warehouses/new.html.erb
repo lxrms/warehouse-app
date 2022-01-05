@@ -1,7 +1,12 @@
 <h1>Novo Galpão</h1>
 
 <% if @warehouse.errors.any? %>
-  <%= @warehouse.errors.full_messages %>
+  <span>Verifique os erros abaixo:</span>
+  <ul>
+    <% @warehouse.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end%>
+  </ul>
 <% end %>
 
 
