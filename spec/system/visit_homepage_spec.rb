@@ -28,9 +28,16 @@ describe 'Visitor opens homepage' do
     expect(page).to have_content 'Vitória'
     expect(page).to have_content 'VIX'
 
+    expect(page).not_to have_content '(não há galpões cadastrados)'
   end
 
   it 'and there aren\'t registered warehouses' do
+    # Arrange
+    # Act
+    visit root_path
+
+    # Assert
+    expect(page).to have_content '(não há galpões cadastrados)'
   end
 
   it 'doesnt show details of the registered warehouses' do

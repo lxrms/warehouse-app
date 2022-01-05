@@ -8,4 +8,6 @@
   <%= warehouse.code %>
 <% end %>
 
+<%= '(não há galpões cadastrados)' if @warehouses.empty? %>
+
 <%= link_to 'Cadastrar novo galpão', new_warehouse_path %>
