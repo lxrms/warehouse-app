@@ -9,11 +9,13 @@ describe 'Visitor opens homepage' do
 
   it 'and sees registered warehouses' do
     # Arrange
-    Warehouse.create name: 'Guarulhos', code: 'GRU'
-    Warehouse.create name: 'Porto Alegre', code: 'POA'
-    Warehouse.create name: 'São Luís', code: 'SLZ'
-    Warehouse.create name: 'Vitória', code: 'VIX'
-    
+    Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
+                     address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
+                     postal_code: '01010-010', total_area: '10000', useful_area: '8000'
+    Warehouse.create name: 'Porto Alegre 2', code: 'POA', description: 'Galpao medio',
+                     address: 'Av Sapopemba', city: 'Porto Alegre', state: 'RS',
+                     postal_code: '05010-010', total_area: '8000', useful_area: '7500'
+
     # Act
     visit root_path
     
@@ -23,10 +25,6 @@ describe 'Visitor opens homepage' do
     expect(page).to have_content 'GRU'
     expect(page).to have_content 'Porto Alegre'
     expect(page).to have_content 'POA'
-    expect(page).to have_content 'São Luís'
-    expect(page).to have_content 'SLZ'
-    expect(page).to have_content 'Vitória'
-    expect(page).to have_content 'VIX'
 
     expect(page).not_to have_content '(não há galpões cadastrados)'
   end

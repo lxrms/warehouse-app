@@ -8,11 +8,13 @@ class WarehousesController < ApplicationController
   end
 
   def create
-    warehouse = Warehouse.new(warehouse_params)
-    if warehouse.save
-      redirect_to warehouse, notice: 'Galpão registrado com sucesso'
+    @warehouse = Warehouse.new(warehouse_params)
+    if @warehouse.save
+      flash[:notice] = 'Galpão registrado com sucesso'
+      redirect_to @warehouse
     else
-      render :new
+      flash.now[:alert] = 'Não foi possível registrar o galpão'
+      render 'new'
     end
   end
 

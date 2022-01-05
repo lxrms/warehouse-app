@@ -5,8 +5,7 @@
 <h2>Galpões Cadastrados</h2>
 <% @warehouses.each do |warehouse| %>
   <div>
-    <%= link_to warehouse.name, warehouse %>
-    <%= warehouse.code %>
+    <%= link_to warehouse.name, warehouse %> [<%= warehouse.code %>]
   </div>
 <% end %>
 

@@ -15,6 +15,10 @@
   <body>
     <header>
       <%= render partial: 'layouts/nav' %>
+
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+
     </header>
     <main>
       <%= yield %>
