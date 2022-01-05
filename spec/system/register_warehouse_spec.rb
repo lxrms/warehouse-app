@@ -49,5 +49,6 @@ describe 'Visitor registers a warehouse' do
     expect(page).to have_content 'Área Total: 5000 m²'
     expect(page).to have_content 'Área Útil: 3000 m²'
     expect(page).to have_content 'Galpão registrado com sucesso'
+
   end
 end

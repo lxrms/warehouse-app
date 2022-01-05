@@ -4,10 +4,10 @@
 
 <h2>Galpões Cadastrados</h2>
 <% @warehouses.each do |warehouse| %>
-  <%= link_to warehouse.name, warehouse %>
-  <%= warehouse.code %>
+  <div>
+    <%= link_to warehouse.name, warehouse %>
+    <%= warehouse.code %>
+  </div>
 <% end %>
 
 <%= '(não há galpões cadastrados)' if @warehouses.empty? %>
-
-<%= link_to 'Cadastrar novo galpão', new_warehouse_path %>
