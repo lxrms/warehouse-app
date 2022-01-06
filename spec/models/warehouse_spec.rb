@@ -34,7 +34,6 @@ RSpec.describe Warehouse, type: :model do
                                 postal_code: '001010-010', total_area: '10000', useful_area: '8000'
       # Act
       result = warehouse.valid?
-      
       #Assert
       expect(result).to eq false
     end
@@ -43,7 +42,7 @@ RSpec.describe Warehouse, type: :model do
       #Arrange
       warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
-                                postal_code: '01010-000', total_area: '10000', useful_area: '8000'
+                                postal_code: '01010-0010', total_area: '10000', useful_area: '8000'
       # Act
       result = warehouse.valid?
       #Assert
