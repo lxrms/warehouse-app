@@ -1,7 +1,11 @@
 <h1>Fornecedores</h1>
 
+
+
 <% @suppliers.each do |supplier| %>
   <div>
     <%= supplier.fantasy_name %> - <%= supplier.cnpj %>
   </div>
 <% end %>
+
+<%= '(não há fornecedores cadastrados)' if @suppliers.empty? %>

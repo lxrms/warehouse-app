@@ -28,5 +28,17 @@ describe 'Visitor sees suppliers' do
     expect(page).to have_content '71348822000106'
     expect(page).to have_content 'LG'
     expect(page).to have_content '61475820000124'
+    expect(page).not_to have_content '(não há fornecedores cadastrados)'
+
+  end
+
+  it 'and there arent suppliers' do
+    # Arrange
+    # Act
+    visit root_path
+    click_on 'Ver Fornecedores'
+  
+    # Assert
+    expect(page).to have_content '(não há fornecedores cadastrados)'
   end
 end
