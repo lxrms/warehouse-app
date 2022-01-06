@@ -52,7 +52,7 @@ describe 'Visitor registers a warehouse' do
 
   end
 
-  it 'and all the fields should be required' do
+  it 'and all the fields are required with error messages' do
     # Arrange
 
     # Act
