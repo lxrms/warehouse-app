@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_06_141954) do
+ActiveRecord::Schema.define(version: 2022_01_07_131721) do
+
+  create_table "product_models", force: :cascade do |t|
+    t.string "name"
+    t.integer "weight"
+    t.integer "height"
+    t.integer "width"
+    t.integer "length"
+    t.string "sku"
+    t.integer "supplier_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["supplier_id"], name: "index_product_models_on_supplier_id"
+  end
 
   create_table "suppliers", force: :cascade do |t|
     t.string "fantasy_name"
@@ -37,4 +50,5 @@ ActiveRecord::Schema.define(version: 2022_01_06_141954) do
     t.integer "useful_area"
   end
 
+  add_foreign_key "product_models", "suppliers"
 end

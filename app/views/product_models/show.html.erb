@@ -1,0 +1,15 @@
+<h1><%= @product_model.name %></h1>
+<dd>
+  <dt>Peso:</dt>
+  <dd><%= @product_model.weight %> gramas</dd>
+  
+  <dt>Dimensões:</dt>
+  <dd><%= "#{@product_model.height} x #{@product_model.width} x #{@product_model.length}" %></dd>
+
+  <dt>SKU:</dt>
+  <dd><%= @product_model.sku %></dd>
+  
+  <dt>Fornecedor:</dt>
+  <dd><%= @product_model.supplier.fantasy_name %></dd>
+  
+</dd>
