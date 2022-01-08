@@ -4,7 +4,7 @@
 
 <% @suppliers.each do |supplier| %>
   <div>
-    <%= supplier.fantasy_name %> - <%= supplier.cnpj %>
+    <%= link_to supplier.fantasy_name, supplier %> - <%= supplier.cnpj %>
   </div>
 <% end %>
 

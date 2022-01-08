@@ -63,7 +63,7 @@ RSpec.describe Warehouse, type: :model do
 
   it 'Name is required' do
     # Arrange
-    warehouse = Warehouse.create name: '', code: 'GRU', description: 'Galpao grande',
+    warehouse = Warehouse.new name: '', code: 'GRU', description: 'Galpao grande',
                                  address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                  postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
@@ -74,7 +74,7 @@ RSpec.describe Warehouse, type: :model do
 
   it 'Code is required' do
     # Arrange
-    warehouse = Warehouse.create name: 'Guarulhos', code: '', description: 'Galpao grande',
+    warehouse = Warehouse.new name: 'Guarulhos', code: '', description: 'Galpao grande',
                                  address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                  postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
@@ -85,7 +85,7 @@ RSpec.describe Warehouse, type: :model do
 
   it 'Description is required' do
     # Arrange
-    warehouse = Warehouse.create name: 'Guarulhos', code: 'GRU', description: '',
+    warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: '',
                                  address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                  postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
@@ -96,7 +96,7 @@ RSpec.describe Warehouse, type: :model do
 
   it 'Address is required' do
     # Arrange
-    warehouse = Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
+    warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                  address: '', city: 'Guarulhos', state: 'SP',
                                  postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
@@ -107,7 +107,7 @@ RSpec.describe Warehouse, type: :model do
 
   it 'City is required' do
     # Arrange
-    warehouse = Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
+    warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                  address: 'Av do Estado', city: '', state: 'SP',
                                  postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
@@ -118,7 +118,7 @@ RSpec.describe Warehouse, type: :model do
 
   it 'State is required' do
     # Arrange
-    warehouse = Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
+    warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                  address: 'Av do Estado', city: 'Guarulhos', state: '',
                                  postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
@@ -129,7 +129,7 @@ RSpec.describe Warehouse, type: :model do
 
   it 'Postal code is required' do
     # Arrange
-    warehouse = Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
+    warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                  address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                  postal_code: '', total_area: '10000', useful_area: '8000'
     # Act
@@ -140,7 +140,7 @@ RSpec.describe Warehouse, type: :model do
 
   it 'Total area is required' do
     # Arrange
-    warehouse = Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
+    warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                  address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                  postal_code: '01010-010', total_area: '', useful_area: '8000'
     # Act
@@ -151,7 +151,7 @@ RSpec.describe Warehouse, type: :model do
 
   it 'Usefull area is required' do
     # Arrange
-    warehouse = Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
+    warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                  address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                  postal_code: '01010-010', total_area: '10000', useful_area: ''
     # Act

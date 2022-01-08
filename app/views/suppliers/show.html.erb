@@ -1,0 +1,33 @@
+<h1><%= @supplier.fantasy_name %></h1>
+
+<dl>
+  <dt>Razão Social: </dt>
+  <dd><%= @supplier.legal_name %></dd>
+ 
+  <dt>CNPJ:</dt>
+  <dd><%= @supplier.cnpj %></dd>
+ 
+  <dt>Endereço:</dt>
+  <dd><%= @supplier.address %></dd>
+ 
+  <dt>E-mail:</dt>
+  <dd><%= @supplier.email %></dd>
+ 
+  <dt>Telefone:</dt>
+  <dd><%= @supplier.phone %></dd>
+ 
+</dl>
+
+<h2>Produtos do fornecedor:</h2>
+<table>
+  <tr>
+    <th>Produto</th>
+    <th>SKU</th>
+  </tr>
+  <% @supplier.product_models.each do |product_model| %>
+    <tr>
+      <td><%= product_model.name %></td>
+      <td><%= product_model.sku %></td>
+    </tr>
+  <% end %>
+</table>

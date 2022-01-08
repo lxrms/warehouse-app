@@ -9,10 +9,10 @@ describe 'Visitor opens homepage' do
 
   it 'and sees registered warehouses' do
     # Arrange
-    Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
+    Warehouse.create! name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                      address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                      postal_code: '01010-010', total_area: '10000', useful_area: '8000'
-    Warehouse.create name: 'Porto Alegre 2', code: 'POA', description: 'Galpao medio',
+    Warehouse.create! name: 'Porto Alegre 2', code: 'POA', description: 'Galpao medio',
                      address: 'Av Sapopemba', city: 'Porto Alegre', state: 'RS',
                      postal_code: '05010-010', total_area: '8000', useful_area: '7500'
 
@@ -40,7 +40,7 @@ describe 'Visitor opens homepage' do
 
   it 'doesnt show details of the registered warehouses' do
     # Arrange
-    Warehouse.create name: 'Maceió', code: 'MCZ', description: 'Ótimo galpão numa linda cidade',
+    Warehouse.create! name: 'Maceió', code: 'MCZ', description: 'Ótimo galpão numa linda cidade',
     address: 'Av. Fernandes Lima', city: 'Maceió', state: 'AL',
     postal_code: '57050-000', total_area: 10000, useful_area: 8000
 

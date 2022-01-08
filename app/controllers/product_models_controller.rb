@@ -1,6 +1,7 @@
 class ProductModelsController < ApplicationController
   def show
     @product_model = ProductModel.find(params[:id])
+
   end
   
   def new
@@ -22,8 +23,8 @@ class ProductModelsController < ApplicationController
   private
 
   def product_model_params
-    params.require(:product_model).permit(:name, :weight,
+    params.require(:product_model).permit :name, :weight,
                                           :height, :width, :length,
-                                          :sku, :supplier_id)
+                                          :sku, :supplier_id
   end
 end

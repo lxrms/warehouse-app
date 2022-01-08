@@ -12,10 +12,10 @@ describe 'Visitor sees suppliers' do
 
   it 'previously registered' do
     # Arrange
-    Supplier.create fantasy_name: 'Samsung', legal_name: 'Samsung do Brasil Ltda',
+    Supplier.create! fantasy_name: 'Samsung', legal_name: 'Samsung do Brasil Ltda',
                              cnpj: '71348822000106', address: 'Av. Industrial, 1000, São Paulo',
                              email: 'financeiro@samsung.com.br', phone: '11 1234-5678'
-    Supplier.create fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
+    Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
                              cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
                              email: 'financeiro@lg.com.br', phone: '11 1234-5555'
 

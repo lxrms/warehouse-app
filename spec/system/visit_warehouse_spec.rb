@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Visitor see a warehouse' do
   it 'and sees all the registered warehouses' do
     # Arrange
-    Warehouse.create name: 'Maceió', code: 'MCZ', description: 'Ótimo galpão numa linda cidade',
+    Warehouse.create! name: 'Maceió', code: 'MCZ', description: 'Ótimo galpão numa linda cidade',
                      address: 'Av. Fernandes Lima', city: 'Maceió', state: 'AL',
                      postal_code: '57050-000', total_area: 10000, useful_area: 8000
 
@@ -24,7 +24,7 @@ describe 'Visitor see a warehouse' do
 
   it 'and goes back to homepage' do
     # Arrange
-    Warehouse.create name: 'Maceió', code: 'MCZ', description: 'Ótimo galpão numa linda cidade',
+    Warehouse.create! name: 'Maceió', code: 'MCZ', description: 'Ótimo galpão numa linda cidade',
                      address: 'Av. Fernandes Lima', city: 'Maceió', state: 'AL',
                      postal_code: '57050-000', total_area: 10000, useful_area: 8000
 
