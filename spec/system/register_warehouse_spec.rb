@@ -1,15 +1,35 @@
 require 'rails_helper'
 
-describe 'Visitor registers a warehouse' do
-  it 'through a link in homepage' do
+describe 'User registers a warehouse' do
+  it 'and a visitor doesnt see the menu' do
     # Arrange
 
     # Act
     visit root_path
-    click_on 'Cadastrar novo galpão'
 
     # Assert
-    expect(page).to have_content 'Novo Galpão'
+    expect(page).not_to have_link 'Cadastrar novo galpão'
+  end
+
+  it 'and can\'t access directly the form' do
+    # Arrange
+    # Act
+    visit new_warehouse_path
+
+    # Assert
+    expect(current_path).to eq new_user_session_path
+  end
+
+  it 'through a link in homepage' do
+    # Arrange
+    user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
+    
+    # Act
+    login_as(user, :scope => :user)
+    visit root_path
+    click_on 'Cadastrar novo galpão'
+    # Assert
+    expect(page).to have_content 'Cadastrar novo galpão'
     expect(page).to have_field 'Nome'
     expect(page).to have_field 'Código'
     expect(page).to have_field 'Endereço'
@@ -24,9 +44,12 @@ describe 'Visitor registers a warehouse' do
 
   it 'successfully' do
     # Arrange
-
+    user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
+    
     # Act
+    login_as(user, :scope => :user)
     visit root_path
+    
     click_on 'Cadastrar novo galpão'
     fill_in 'Nome', with: 'Juiz de Fora'
     fill_in 'Código', with: 'JDF'
@@ -54,9 +77,12 @@ describe 'Visitor registers a warehouse' do
 
   it 'and all the fields are required with error messages' do
     # Arrange
-
+    user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
+    
     # Act
+    login_as(user, :scope => :user)
     visit root_path
+
     click_on 'Cadastrar novo galpão'
     fill_in 'Nome', with: ''
     fill_in 'Código', with: ''

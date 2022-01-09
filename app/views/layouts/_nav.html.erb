@@ -2,10 +2,13 @@
   <ul style="list-style: none; display: flex; flex-wrap: wrap;">
 
     <li><%= link_to 'Início', root_path %></li>
-    <li><%= link_to 'Cadastrar novo galpão', new_warehouse_path %></li>
     <li><%= link_to 'Ver Fornecedores', suppliers_path %></li>
     <li><%= link_to 'Cadastrar modelo de produto', new_product_model_path %></li>
     
+    <% if user_signed_in? %>
+      <li><%= link_to 'Cadastrar novo galpão', new_warehouse_path %></li>
+    <% end %>
+
     <hr>
 
     <% if user_signed_in? %>
