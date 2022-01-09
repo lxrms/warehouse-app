@@ -87,12 +87,12 @@ describe 'User registers a warehouse' do
     fill_in 'Nome', with: ''
     fill_in 'Código', with: ''
     fill_in 'Endereço', with: ''
-    # fill_in 'Cidade', with: 'Juiz de Fora'
-    # fill_in 'Estado', with: 'MG'
-    # fill_in 'CEP', with: '36000-000'
-    # fill_in 'Descrição', with: 'Um galpão mineiro com o pé no Rio'
-    # fill_in 'Área Total', with: '5000'
-    # fill_in 'Área Útil', with: '3000'
+    fill_in 'Cidade', with: ''
+    fill_in 'Estado', with: ''
+    fill_in 'CEP', with: ''
+    fill_in 'Descrição', with: ''
+    fill_in 'Área Total', with: ''
+    fill_in 'Área Útil', with: ''
     click_on 'Gravar'
 
     # Assert

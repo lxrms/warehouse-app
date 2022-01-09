@@ -1,5 +1,4 @@
-<h1><%= @warehouse.name %></h1>
-<h2><%= @warehouse.code %></h2>
+<h2><%= @warehouse.name %> [<%= @warehouse.code %>]</h2>
 
 <dl>
   <dt>Descrição:</dt>
@@ -17,6 +16,5 @@
   <dt>Área Útil:</dt>
   <dd><%= @warehouse.useful_area %> m²</dd>
 </dl>
-
-
-<%= link_to 'Voltar', root_path %>
+<p><%= link_to 'Editar', edit_warehouse_path(@warehouse)%></p>
+<p><%= link_to 'Voltar', root_path%></p>
