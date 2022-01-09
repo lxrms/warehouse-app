@@ -34,7 +34,6 @@ describe 'Visitor sees supplier details' do
     visit root_path
     click_on 'Ver Fornecedores'
     click_on 'Samsung'
-    save_page
 
     # Assert
     expect(page).to have_css 'h1', text: 'Samsung'

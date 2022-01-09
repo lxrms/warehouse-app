@@ -32,6 +32,5 @@ describe 'User registers a bundle' do
     expect(page).to have_content 'CPOOW12032103'
     expect(page).not_to have_content 'Lancheira'
     expect(page).not_to have_content 'LAOOW12032103'
-    save_page
   end
 end
