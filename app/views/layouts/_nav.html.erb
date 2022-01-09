@@ -13,7 +13,7 @@
         <%= "Olá, #{current_user.email}" %> | <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
-      <li><%= link_to 'Login', new_user_session_path %></li>
+      <li><%= link_to 'Logar', new_user_session_path %></li>
     <% end %>
   </ul>
 </nav>

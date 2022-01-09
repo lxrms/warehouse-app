@@ -7,7 +7,7 @@ describe 'User logs in' do
 
     # Act
     visit root_path
-    click_on 'Login'
+    click_on 'Logar'
     fill_in 'E-mail', with: 'alex@gmail.com'
     fill_in 'Senha', with: '12345678'
     click_on 'Entrar'
@@ -26,7 +26,7 @@ describe 'User logs in' do
 
     # Act
     visit root_path
-    click_on 'Login'
+    click_on 'Logar'
     fill_in 'E-mail', with: 'alex@gmail.com'
     fill_in 'Senha', with: '12345678'
     click_on 'Entrar'
@@ -34,7 +34,7 @@ describe 'User logs in' do
 
     # Assert
     expect(current_path).to eq root_path
-    expect(page).to have_link 'Login'
+    expect(page).to have_link 'Logar'
     expect(page).not_to have_link 'Sair'
     expect(page).not_to have_content 'Olá, alex@gmail.com'
     expect(page).to have_content 'Logout efetuado com sucesso.'
