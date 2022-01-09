@@ -1,18 +1,19 @@
 <nav>
-  <ul>
-    <% if user_signed_in? %>
-      <li>
-        <%= "Olá, #{current_user.email}" %> | <%= link_to 'Sair', destroy_user_session_path, method: "delete" %>
-
-      </li>
-    <% else %>
-      <li><%= link_to 'Login', new_user_session_path %></li>
-    <% end %>
+  <ul style="list-style: none; display: flex; flex-wrap: wrap;">
 
     <li><%= link_to 'Início', root_path %></li>
     <li><%= link_to 'Cadastrar novo galpão', new_warehouse_path %></li>
     <li><%= link_to 'Ver Fornecedores', suppliers_path %></li>
     <li><%= link_to 'Cadastrar modelo de produto', new_product_model_path %></li>
+    
+    <hr>
 
+    <% if user_signed_in? %>
+      <li>
+        <%= "Olá, #{current_user.email}" %> | <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li><%= link_to 'Login', new_user_session_path %></li>
+    <% end %>
   </ul>
 </nav>
