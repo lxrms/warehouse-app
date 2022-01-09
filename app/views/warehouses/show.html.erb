@@ -16,5 +16,7 @@
   <dt>Área Útil:</dt>
   <dd><%= @warehouse.useful_area %> m²</dd>
 </dl>
-<p><%= link_to 'Editar', edit_warehouse_path(@warehouse)%></p>
+<% if user_signed_in? %>
+  <p><%= link_to 'Editar', edit_warehouse_path(@warehouse)%></p>
+<% end %>
 <p><%= link_to 'Voltar', root_path%></p>
