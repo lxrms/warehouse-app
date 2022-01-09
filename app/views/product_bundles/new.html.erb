@@ -1,0 +1,19 @@
+<h1>Novo kit de produtos</h1>
+
+<%= form_with model: @product_bundle do |form| %>
+  <div>
+    <%= form.label :name%>
+    <%= form.text_field :name%>
+  </div>
+  <div>
+    <%= form.label :sku%>
+    <%= form.text_field :sku%>
+  </div>
+  <div>
+    <p>Escolha os produtos:</p>
+    <%= form.collection_check_boxes :product_model_ids, @product_models, :id, :name %>
+  </div>
+  <div>
+    <%= form.submit 'Gravar' %>
+  </div>
+<% end %>

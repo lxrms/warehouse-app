@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      product_bundle: "Combo de produtos"
+    attributes:
+      product_bundle:
+        name: "Nome"
+        sku: "Código SKU"
