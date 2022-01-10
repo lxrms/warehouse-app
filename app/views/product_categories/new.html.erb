@@ -1,0 +1,20 @@
+<h1>Cadastrar categoria de produto</h1>
+
+<% if @product_category.errors.any? %>
+  <span>Verifique os erros abaixo:</span>
+  <ul>
+    <% @product_category.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end%>
+  </ul>
+<% end %>
+
+<%= form_with model: @product_category do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.submit 'Gravar' %>
+  </div>
+<% end %>

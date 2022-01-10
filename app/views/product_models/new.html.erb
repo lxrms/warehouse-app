@@ -26,6 +26,10 @@
     <%= f.text_field :sku %>
   </div>
   <div>
+    <%= f.label :product_category_id %>
+    <%= f.collection_select :product_category_id, @product_categories, :id, :name %>
+  </div>
+  <div>
     <%= f.label :supplier_id %>
     <%= f.collection_select :supplier_id, @suppliers, :id, :fantasy_name %>
   </div>

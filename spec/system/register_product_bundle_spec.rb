@@ -7,12 +7,16 @@ describe 'User registers a bundle' do
     supplier = Supplier.create! fantasy_name: 'Geek&Stuff', legal_name: 'Geek&Stuff LTDA INC',
                                 cnpj: '71348822000106', address: 'Av. Industrial, 1000, São Paulo',
                                 email: 'financeiro@ges.com.br', phone: '11 1234-5678'
+    cat = ProductCategory.create! name: 'Utensílios de Cozinha'
     ProductModel.create! name: 'Caneca Star Wars', height: '14', width: '10', length: '8',
-                         weight: '300', sku: 'CANSW12032103', supplier: supplier
+                         weight: '300', sku: 'CANSW12032103', supplier: supplier,
+                         product_category: cat
     ProductModel.create! name: 'Copo Overwatch', height: '20', width: '12', length: '8',
-                         weight: '200', sku: 'CPOOW12032103', supplier: supplier
+                         weight: '200', sku: 'CPOOW12032103', supplier: supplier,
+                         product_category: cat
     ProductModel.create! name: 'Lancheira', height: '20', width: '12', length: '8',
-                         weight: '200', sku: 'LAOOW12032103', supplier: supplier
+                         weight: '200', sku: 'LAOOW12032103', supplier: supplier,
+                         product_category: cat
     # Act
     login_as(user, :scope => :user)
     visit root_path

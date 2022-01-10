@@ -11,3 +11,4 @@ pt-BR:
         length: 'Profundidade'
         sku: 'SKU'
         supplier_id: "Fornecedor"
+        product_category_id: "Categoria"

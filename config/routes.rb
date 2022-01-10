@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :suppliers, only: [:index, :show, :new, :create]
   resources :product_models, only: [:show, :new, :create]
   resources :product_bundles, only: [:new, :create, :show]
+  resources :product_categories, only: [:new, :create]
 end
 

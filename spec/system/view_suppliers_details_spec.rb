@@ -25,10 +25,11 @@ describe 'Visitor sees supplier details' do
     supplier = Supplier.create! fantasy_name: 'Samsung', legal_name: 'Samsung do Brasil Ltda',
                         cnpj: '71348822000106', address: 'Av. Industrial, 1000, São Paulo',
                         email: 'financeiro@samsung.com.br', phone: '11 1234-5678'
+    cat = ProductCategory.create! name: 'Utensílios de Cozinha'
     ProductModel.create! name: 'Caneca Star Wars', height: '14', width: '10', length: '8',
-                        weight: '300', sku: 'CANSW12032103', supplier: supplier
+                        weight: '300', sku: 'CANSW12032103', supplier: supplier, product_category: cat
     ProductModel.create! name: 'Pelúcia Dumbo', height: '50', width: '40', length: '20',
-                        weight: '400', sku: 'PLD9012839210', supplier: supplier
+                        weight: '400', sku: 'PLD9012839210', supplier: supplier, product_category: cat
 
     # Act
     visit root_path
@@ -57,10 +58,13 @@ describe 'Visitor sees supplier details' do
     other_supplier = Supplier.create! fantasy_name: 'LG', legal_name: 'LG Ltda',
                                       cnpj: '71348822000101', address: 'Av. Industrial, 1000, São Paulo',
                                       email: 'financeiro@LG.com.br', phone: '11 1234-5678'
+    cat = ProductCategory.create! name: 'Utensílios de Cozinha'
     ProductModel.create! name: 'Caneca Star Wars', height: '14', width: '10', length: '8',
-                        weight: '300', sku: 'CANSW12032103', supplier: supplier
+                        weight: '300', sku: 'CANSW12032103', supplier: supplier,
+                        product_category: cat
     ProductModel.create! name: 'Pelúcia Dumbo', height: '50', width: '40', length: '20',
-                        weight: '400', sku: 'PLD9012839210', supplier: other_supplier
+                        weight: '400', sku: 'PLD9012839210', supplier: other_supplier,
+                        product_category: cat
 
     # Act
     visit root_path

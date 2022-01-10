@@ -7,6 +7,7 @@ class ProductModelsController < ApplicationController
   def new
     @product_model = ProductModel.new
     @suppliers = Supplier.all
+    @product_categories = ProductCategory.all
   end
 
   def create
@@ -25,6 +26,6 @@ class ProductModelsController < ApplicationController
   def product_model_params
     params.require(:product_model).permit :name, :weight,
                                           :height, :width, :length,
-                                          :sku, :supplier_id
+                                          :sku, :supplier_id, :product_category_id
   end
 end
