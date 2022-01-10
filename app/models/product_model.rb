@@ -13,9 +13,9 @@ class ProductModel < ApplicationRecord
   private
   
   def generate_sku
-    new_sku = SecureRandom.send(:choose, [*'a'..'z', *'0'..'9'], 20).upcase
+    new_sku = SecureRandom.alphanumeric(20).to_s.upcase
     until ProductModel.find_by(sku: new_sku).nil? do
-      new_sku = SecureRandom.send(:choose, [*'a'..'z', *'0'..'9'], 20).upcase
+      new_sku = SecureRandom.alphanumeric(20).to_s.upcase
     end
     self.sku = new_sku
   end
