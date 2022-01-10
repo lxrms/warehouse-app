@@ -22,7 +22,6 @@ describe 'Visitor register a product model' do
     fill_in 'Largura', with:  '8'
     fill_in 'Profundidade', with: '14'
     select 'Utensílios de Cozinha', from: 'Categoria'
-    fill_in 'SKU', with: 'CN2030140ABC'
     select 'Samsung', from: 'Fornecedor'
     click_on 'Gravar'
       
@@ -31,7 +30,7 @@ describe 'Visitor register a product model' do
     expect(page).to have_content 'Caneca Star Wars'
     expect(page).to have_content '300 gramas'
     expect(page).to have_content 'Dimensões: 12 x 8 x 14'
-    expect(page).to have_content 'SKU: CN2030140ABC'
+    expect(page).to have_content "SKU: #{ProductModel.last.sku}"
     expect(page).to have_content 'Categoria: Utensílios de Cozinha'
     expect(page).to have_content 'Fornecedor: Samsung'
 
