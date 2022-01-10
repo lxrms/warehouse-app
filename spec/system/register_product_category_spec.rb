@@ -8,7 +8,6 @@ describe 'User can add a product category' do
     login_as(user, :scope => :user)
     visit root_path
     click_on 'Cadastrar categoria de produto'
-    save_page
     fill_in 'Nome', with: 'Minha categoria'
     click_on 'Gravar'
     # Assert
@@ -23,7 +22,6 @@ describe 'User can add a product category' do
     login_as(user, :scope => :user)
     visit root_path
     click_on 'Cadastrar categoria de produto'
-    save_page
     fill_in 'Nome', with: ''
     click_on 'Gravar'
     # Assert
@@ -38,7 +36,6 @@ describe 'User can add a product category' do
     login_as(user, :scope => :user)
     visit root_path
     click_on 'Cadastrar categoria de produto'
-    save_page
     fill_in 'Nome', with: 'Minha categoria'
     click_on 'Gravar'
     # Assert
