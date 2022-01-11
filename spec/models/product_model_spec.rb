@@ -84,7 +84,22 @@ RSpec.describe ProductModel, type: :model do
     result = product_model2.valid?
     # Assert
     expect(result).to eq false
+  end
 
-    
+  it 'should sku must be upcase' do
+    # Arrange
+    supplier = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
+      cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
+      email: 'financeiro@lg.com.br', phone: '11 1234-5555'
+    product_category = ProductCategory.create! name: 'Utensílios de Cozinha'
+
+    product_model = ProductModel.create! name: 'Caneca', height: '14', width: '10',
+                                         length: '12', weight: '200', supplier: supplier,
+                                         product_category: product_category 
+
+    # Act
+    sku = product_model.sku
+    # Assert
+    expect(sku =~ /A-Z/).to eq nil
   end
 end
