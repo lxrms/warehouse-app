@@ -22,14 +22,12 @@ describe 'User registers a bundle' do
     visit root_path
     click_on 'Criar novo kit de produtos'
     fill_in 'Nome', with: 'Kit de copos'
-    fill_in 'Código SKU', with: 'KIOOW12032103'
     check 'Caneca Star Wars'
     check 'Copo Overwatch'
     click_on 'Gravar'
     
     # Assert 
     expect(page).to have_content 'Kit de copos'
-    expect(page).to have_content 'KIOOW12032103'
     expect(page).to have_content 'Caneca Star Wars'
     expect(page).to have_content p1.sku
     expect(page).to have_content 'Copo Overwatch'

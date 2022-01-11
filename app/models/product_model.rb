@@ -1,22 +1,22 @@
 class ProductModel < ApplicationRecord
   belongs_to :supplier 
   belongs_to :product_category 
+
   has_many :product_bundle_items
   has_many :product_bundles, through: :product_bundle_items
   
   before_create :generate_sku
 
+  validates :sku, uniqueness: true
+
+  
   def dimensions
     "#{height} x #{width} x #{length}"
   end
-
-  private
   
+  private
+
   def generate_sku
-    new_sku = SecureRandom.alphanumeric(20).to_s.upcase
-    until ProductModel.find_by(sku: new_sku).nil? do
-      new_sku = SecureRandom.alphanumeric(20).to_s.upcase
-    end
-    self.sku = new_sku
+    self.sku = SecureRandom.alphanumeric(20).upcase
   end
 end
