@@ -20,8 +20,8 @@
 <h2>Galpões com disponibilidade</h2>
 
 
-<% @warehouses = @product_model.warehouses.group(:warehouses) %>
-
+<% @warehouses = @product_model.warehouses.group(:warehouse_id) %>
+<% puts @warehouses %>
 <% @warehouses.each do |warehouse| %>
   <div>
     Galpão: <%= link_to warehouse.name, warehouse %>
