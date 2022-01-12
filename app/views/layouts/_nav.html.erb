@@ -1,25 +1,20 @@
 <nav>
-  <ul style="list-style: none; display: flex; flex-wrap: wrap;">
+  <% if user_signed_in? %>
+    <%= "Olá, #{current_user.email}" %> | <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Logar', new_user_session_path %>
+  <% end %>
 
-    <li><%= link_to 'Início', root_path %></li>
+  <ul style="list-style: none; display: flex; flex-wrap: wrap;">
+    <li><%= link_to 'Início/Galpões', root_path %></li>
     <li><%= link_to 'Ver Fornecedores', suppliers_path %></li>
-    
     <% if user_signed_in? %>
       <li><%= link_to 'Cadastrar modelo de produto', new_product_model_path %></li>
       <li><%= link_to 'Cadastrar categoria de produto', new_product_category_path %></li>
       <li><%= link_to 'Cadastrar novo galpão', new_warehouse_path %></li>
       <li><%= link_to 'Cadastrar novo fornecedor', new_supplier_path %></li>
       <li><%= link_to 'Criar novo kit de produtos', new_product_bundle_path %></li>
-    <% end %>
-
-    <hr>
-
-    <% if user_signed_in? %>
-      <li>
-        <%= "Olá, #{current_user.email}" %> | <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li><%= link_to 'Logar', new_user_session_path %></li>
+      <li><%= link_to 'Entrada de items', product_items_entry_path %></li>
     <% end %>
   </ul>
 </nav>

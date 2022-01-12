@@ -4,12 +4,13 @@ class ProductModel < ApplicationRecord
 
   has_many :product_bundle_items
   has_many :product_bundles, through: :product_bundle_items
+  has_many :product_items
+  has_many :warehouses, through: :product_items
   
   before_create :generate_sku
 
   validates :sku, uniqueness: true
 
-  
   def dimensions
     "#{height} x #{width} x #{length}"
   end

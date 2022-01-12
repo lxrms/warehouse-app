@@ -5,5 +5,8 @@ class Warehouse < ApplicationRecord
             presence: true
   validates :code, uniqueness: true
   validates :postal_code, format: { with: /\A\d{5}-\d{3}\z/ }
-  
+
+  has_many :product_items
+  has_many :product_models, through: :product_items
+
 end
