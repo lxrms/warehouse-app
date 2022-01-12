@@ -18,3 +18,13 @@
 </dd>
 
 <h2>Galpões com disponibilidade</h2>
+
+
+<% @warehouses = @product_model.warehouses.group(:warehouses) %>
+
+<% @warehouses.each do |warehouse| %>
+  <div>
+    Galpão: <%= link_to warehouse.name, warehouse %>
+    Quantidade: <%= @product_model.warehouses.where(id: warehouse.id).count %>
+  </div>
+<% end %>

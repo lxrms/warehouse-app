@@ -27,7 +27,7 @@
 
 <% @items.each_pair do |product_model, quantity| %>
   <div id="product-<%= product_model.id %>">
-    <%= product_model.name %> |
+    <%= link_to product_model.name, product_model %> |
     Quantidade: <%= quantity %>
   </div>
 <% end %>
