@@ -21,7 +21,6 @@
 
 
 <% @warehouses = @product_model.warehouses.group(:warehouse_id) %>
-<% puts @warehouses %>
 <% @warehouses.each do |warehouse| %>
   <div>
     Galpão: <%= link_to warehouse.name, warehouse %>

@@ -3,6 +3,8 @@ class WarehousesController < ApplicationController
   
   def show
     @warehouse = Warehouse.find(params[:id])
+    @product_models = ProductModel.all
+
   end
 
   def new
