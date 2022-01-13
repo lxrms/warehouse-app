@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   resources :product_models,     only: [:new, :create, :show]
   resources :suppliers,          only: [:new, :create, :show, :index]
   resources :warehouses,         only: [:new, :create, :show, :edit, :update]
+
+  namespace :api, format: 'json' do
+    resources :warehouses, only: [:index]
+  end
 end

@@ -3,7 +3,7 @@
 <%= form_with url: product_items_entry_path do |form| %>
   <div>
     <%= form.label :quantity, 'Quantidade' %>
-    <%= form.number_field :quantity %>
+    <%= form.number_field :quantity, min: '1' %>
   </div>
   <div>
     <%= form.label :warehouse_id, 'Galpão de Destino' %>
