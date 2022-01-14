@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :warehouses,         only: [:new, :create, :show, :edit, :update]
 
   namespace :api, format: 'json' do
-    resources :warehouses, only: [:index]
+    namespace :v1 do
+      resources :warehouses, only: [:index]
+    end
   end
 end
