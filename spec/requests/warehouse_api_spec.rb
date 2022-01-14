@@ -40,5 +40,7 @@ describe 'Warehouse API' do
       expect(parsed_response).to eq []
 
     end
+
+    
   end
 end
