@@ -1,0 +1,44 @@
+[33m9dedecd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Adiciona endpoint de consulta de galpoes
+[33mc0dcd08[m Adiciona um footer a pagina
+[33m7487730[m Adiciona o endpoint de listagem de galpoes a API
+[33m0a14ef7[m Cria a API de index dos galpoes
+[33mc624fd5[m Adiciona formulario para inserir produtos no próprio galpão
+[33m9d2ceaa[m Melhora o show da exibição de galpões em modelos de produtos
+[33md814976[m Adicionar visualização de galpões com estoque em cada página de modelo de produto
+[33m0a58a71[m Entrada de produto no estoque
+[33m3bb484f[m Adiciona teste de SKU sem minúsculas
+[33m581002e[m Adiciona teste de unicidade ao sku do product_model
+[33m7eb2410[m Melhora a expressão para gerar SKU
+[33m08be471[m Implementa SKU automatico no modelo de produto
+[33maf4dd65[m Remove save_page dos testes
+[33m04cba3e[m Adiciona categoria de produto
+[33m0e43a0c[m Impede visitante deslogado de editar warehouses
+[33m08b84c3[m Adicionar ediçao de warehouse
+[33m2f588d9[m Adiciona cadastro de fornecedor
+[33m00b23e1[m Melhora teste de view supplier
+[33m414c786[m Remove save_page de testes
+[33mced419b[m Cria model de product_model com i18n
+[33m8ef7b42[m Impede visitante de cadastrar warehouses
+[33m2183c32[m Altera o termo login por logar
+[33m9e224b2[m Formata navegação e conserta i18n do Devise
+[33m1cc9b9b[m Adiciona autorização de usuários
+[33m4fca0f2[m Exibe os produtos do fornecedor
+[33mc439719[m Cria model para o Modelo de Produto com views de new e show
+[33md2b44fb[m Adiciona mensagem de nenhum fornecedor registrado
+[33ma8df3f7[m Cria tela de listagem de fornecedores
+[33m1ae2fb8[m Melhoria de testes de CEP em Warehouse
+[33m46eefb2[m Adiciona validações e testes unitários ao Warehouse
+[33mcb36694[m Erros ao cadastrar galpão traduzidos
+[33m0b5aaca[m Formata erros no cadastro de warehouse
+[33m43f80a1[m Adiciona flash e errors ao registro de warehouse
+[33m33c3a56[m Adiciona SimpleCSS
+[33m7a4808e[m Melhoria na exibição de warehouses
+[33m60c154a[m Cadastro de novos warehouses
+[33m927f975[m Cria o formulario de novo warehouse
+[33m46c84bf[m Formata a visualização de warehouses
+[33ma8a0e1d[m Melhorias na pagina de detalhes do galpao
+[33m3e5dfcd[m Visitante ve detalhes do galpao
+[33md0a08a2[m Atualizando para ficar identico às issues
+[33m0683df6[m Usuario ve galpoes na tela inicial
+[33m6d85234[m Configura o Capybara e Rspec
+[33m132603f[m Commit inicial
