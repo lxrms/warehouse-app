@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   namespace :api, format: 'json' do
     namespace :v1 do
-      resources :warehouses,     only: [:index, :show]
+      resources :warehouses,     only: [:index, :show, :create]
       resources :product_models, only: [:show]
     end
   end
