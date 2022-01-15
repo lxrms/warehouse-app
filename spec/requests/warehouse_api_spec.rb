@@ -71,4 +71,55 @@ describe 'Warehouse API' do
       expect(response.status).to eq 404
     end
   end
+
+  context 'POST /api/v1/warehouses' do
+    it 'successfully' do
+      # Arrange
+      # Act
+      headers = {"CONTENT_TYPE" => "application/json"}
+      post '/api/v1/warehouses', params: '
+                                   {
+                                     "name": "Maceió",
+                                     "code": "MCZ",
+                                     "description": "Ótimo galpão numa linda cidade",
+                                     "address": "Avenida dos Galpões, 1000",
+                                     "city": "Maceió",
+                                     "state": "AL",
+                                     "postal_code": "57050-000",
+                                     "total_area": 10000,
+                                     "useful_area": 8000
+                                   }',
+                                 headers: headers 
+      # Assert
+      expect(response.status).to eq 201
+      parsed_response = JSON.parse(response.body)
+      expect(parsed_response["id"]).to be_a_kind_of(Integer)
+      expect(parsed_response["code"]).to eq 'MCZ'
+      expect(parsed_response["name"]).to eq 'Maceió'
+    end
+
+    it 'has required fields' do
+      # Arrange
+      # Act
+      headers = {"CONTENT_TYPE" => "application/json"}
+      post '/api/v1/warehouses', params: '
+                                   {
+                                     "city": "Maceió",
+                                     "state": "AL",
+                                     "postal_code": "57050-000",
+                                     "total_area": 10000,
+                                     "useful_area": 8000
+                                   }',
+                                 headers: headers 
+      # Assert
+      expect(response.status).to eq 422
+      expect(response.body).to include 'Nome não pode ficar em branco'
+      expect(response.body).to include 'Código não pode ficar em branco'
+      expect(response.body).to include 'Descrição não pode ficar em branco'
+      expect(response.body).to include 'Endereço não pode ficar em branco'
+    end
+
+    it 'code is no unique' do
+    end
+  end
 end

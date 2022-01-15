@@ -16,4 +16,18 @@ class Api::V1::WarehousesController < Api::V1::ApiController
       render json: '{}', status: 404
     end
   end
+
+  def create
+    warehouse_params = params.permit :name, :code, :description,
+                                     :address, :city, :state,
+                                     :postal_code, :total_area,
+                                     :useful_area
+    w = Warehouse.create warehouse_params
+    if w.save
+      render json: w, status: 201
+    else 
+      render json: w.errors.full_messages, status: 422
+    end
+
+  end
 end
