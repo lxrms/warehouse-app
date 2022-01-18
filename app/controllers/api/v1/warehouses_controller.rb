@@ -9,11 +9,7 @@ class Api::V1::WarehousesController < Api::V1::ApiController
   end
 
   def show
-    begin
-      @warehouse = Warehouse.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      render json: '{}', status: 404
-    end
+    @warehouse = Warehouse.find(params[:id])
   end
 
   def create
