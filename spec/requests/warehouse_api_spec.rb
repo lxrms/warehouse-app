@@ -119,7 +119,39 @@ describe 'Warehouse API' do
       expect(response.body).to include 'Endereço não pode ficar em branco'
     end
 
-    it 'code is no unique' do
+    it 'code must be unique' do
+      # Arrange
+      headers = {"CONTENT_TYPE" => "application/json"}
+      post '/api/v1/warehouses', params: '
+        {
+          "name": "Maceió",
+          "code": "MCZ",
+          "description": "Ótimo galpão numa linda cidade",
+          "address": "Avenida dos Galpões, 1000",
+          "city": "Maceió",
+          "state": "AL",
+          "postal_code": "57050-000",
+          "total_area": 10000,
+          "useful_area": 8000
+        }',
+        headers: headers 
+      # Act
+      post '/api/v1/warehouses', params: '
+        {
+          "name": "Maceió",
+          "code": "MCZ",
+          "description": "Ótimo galpão numa linda cidade",
+          "address": "Avenida dos Galpões, 1000",
+          "city": "Maceió",
+          "state": "AL",
+          "postal_code": "57050-000",
+          "total_area": 10000,
+          "useful_area": 8000
+        }',
+        headers: headers 
+      # Assert
+      expect(response.status).to eq 422
+      expect(response.body).to include 'Código já está em uso'
     end
   end
 end
