@@ -6,24 +6,26 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'navbar-burger' %>
+    <%= javascript_pack_tag 'flash-message' %>
 
   </head>
 
   <body>
-    <header>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
-      <%= render partial: 'layouts/nav' %>
-    </header>
-    <main>
-      <%= yield %>
-    </main>
-
-    <%= render partial: 'layouts/footer' %>
-
+    <section class="section">
+      <div class="container">
+        <header>
+          <%= render partial: 'layouts/nav' %>
+          <%= render partial: 'layouts/flash' %>
+        </header>
+        <main>
+          <%= yield %>
+        </main>
+        <%= render partial: 'layouts/footer' %>
+      </div>
+    </section>
   </body>
 </html>

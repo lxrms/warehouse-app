@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # config/initializers/locale.rb
 
 # Permitted locales available for the application

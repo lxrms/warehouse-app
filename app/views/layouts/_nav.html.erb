@@ -1,20 +1,97 @@
-<nav>
-  <% if user_signed_in? %>
-    <%= "Olá, #{current_user.email}" %> | <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Logar', new_user_session_path %>
-  <% end %>
 
-  <ul style="list-style: none; display: flex; flex-wrap: wrap;">
-    <li><%= link_to 'Início/Galpões', root_path %></li>
-    <li><%= link_to 'Ver Fornecedores', suppliers_path %></li>
-    <% if user_signed_in? %>
-      <li><%= link_to 'Cadastrar modelo de produto', new_product_model_path %></li>
-      <li><%= link_to 'Cadastrar categoria de produto', new_product_category_path %></li>
-      <li><%= link_to 'Cadastrar novo galpão', new_warehouse_path %></li>
-      <li><%= link_to 'Cadastrar novo fornecedor', new_supplier_path %></li>
-      <li><%= link_to 'Criar novo kit de produtos', new_product_bundle_path %></li>
-      <li><%= link_to 'Entrada de items', product_items_entry_path %></li>
-    <% end %>
-  </ul>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="/logo.png" height="28">
+      
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <% if user_signed_in? %>
+        <%= link_to 'Entrada de items', product_items_entry_path, class: "navbar-item" %>
+      <% end %>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Fornecedores
+        </a>
+        <div class="navbar-dropdown">
+          <%= link_to 'Ver Fornecedores', suppliers_path, class: "navbar-item" %>
+        </div>
+      </div>
+      <% if user_signed_in? %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Modelo de produto
+          </a>
+          <div class="navbar-dropdown">
+            <%= link_to 'Cadastrar modelo de produto', new_product_model_path, class: "navbar-item" %>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Categoria de produto
+          </a>
+          <div class="navbar-dropdown">
+            <%= link_to 'Cadastrar categoria de produto', new_product_category_path, class: "navbar-item" %>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Galpão
+          </a>
+          <div class="navbar-dropdown">
+            <%= link_to 'Cadastrar novo galpão', new_warehouse_path, class: "navbar-item" %>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Fornecedor
+          </a>
+          <div class="navbar-dropdown">
+            <%= link_to 'Cadastrar novo fornecedor', new_supplier_path, class: "navbar-item" %>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Kit
+          </a>
+          <div class="navbar-dropdown">
+            <%= link_to 'Criar novo kit de produtos', new_product_bundle_path, class: "navbar-item" %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if user_signed_in? %>
+            <%= "Olá, #{current_user.email}" %>&nbsp;|&nbsp;<%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Logar', new_user_session_path, class: "button is-primary" %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
 </nav>

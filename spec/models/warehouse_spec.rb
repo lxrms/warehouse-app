@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Warehouse, type: :model do
@@ -17,46 +19,46 @@ RSpec.describe Warehouse, type: :model do
 
   context 'Postal code only accepts the format ddddd-ddd' do
     it 'Format 01010010' do
-      #Arrange
+      # Arrange
       warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                 postal_code: '01010010', total_area: '10000', useful_area: '8000'
       # Act
       result = warehouse.valid?
-      #Assert
+      # Assert
       expect(result).to eq false
     end
 
     it 'Format 001010-010' do
-      #Arrange
+      # Arrange
       warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                 postal_code: '001010-010', total_area: '10000', useful_area: '8000'
       # Act
       result = warehouse.valid?
-      #Assert
+      # Assert
       expect(result).to eq false
     end
 
     it 'Format 01010-0010' do
-      #Arrange
+      # Arrange
       warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                 postal_code: '01010-0010', total_area: '10000', useful_area: '8000'
       # Act
       result = warehouse.valid?
-      #Assert
+      # Assert
       expect(result).to eq false
     end
 
     it 'Format aaaaa-aaa' do
-      #Arrange
+      # Arrange
       warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
                                 postal_code: 'aaaaa-aaa', total_area: '10000', useful_area: '8000'
       # Act
       result = warehouse.valid?
-      #Assert
+      # Assert
       expect(result).to eq false
     end
   end
@@ -64,8 +66,8 @@ RSpec.describe Warehouse, type: :model do
   it 'Name is required' do
     # Arrange
     warehouse = Warehouse.new name: '', code: 'GRU', description: 'Galpao grande',
-                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
-                                 postal_code: '01010-010', total_area: '10000', useful_area: '8000'
+                              address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
+                              postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
     result = warehouse.valid?
     # Assert
@@ -75,8 +77,8 @@ RSpec.describe Warehouse, type: :model do
   it 'Code is required' do
     # Arrange
     warehouse = Warehouse.new name: 'Guarulhos', code: '', description: 'Galpao grande',
-                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
-                                 postal_code: '01010-010', total_area: '10000', useful_area: '8000'
+                              address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
+                              postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
     result = warehouse.valid?
     # Assert
@@ -86,8 +88,8 @@ RSpec.describe Warehouse, type: :model do
   it 'Description is required' do
     # Arrange
     warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: '',
-                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
-                                 postal_code: '01010-010', total_area: '10000', useful_area: '8000'
+                              address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
+                              postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
     result = warehouse.valid?
     # Assert
@@ -97,8 +99,8 @@ RSpec.describe Warehouse, type: :model do
   it 'Address is required' do
     # Arrange
     warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
-                                 address: '', city: 'Guarulhos', state: 'SP',
-                                 postal_code: '01010-010', total_area: '10000', useful_area: '8000'
+                              address: '', city: 'Guarulhos', state: 'SP',
+                              postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
     result = warehouse.valid?
     # Assert
@@ -108,8 +110,8 @@ RSpec.describe Warehouse, type: :model do
   it 'City is required' do
     # Arrange
     warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
-                                 address: 'Av do Estado', city: '', state: 'SP',
-                                 postal_code: '01010-010', total_area: '10000', useful_area: '8000'
+                              address: 'Av do Estado', city: '', state: 'SP',
+                              postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
     result = warehouse.valid?
     # Assert
@@ -119,8 +121,8 @@ RSpec.describe Warehouse, type: :model do
   it 'State is required' do
     # Arrange
     warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
-                                 address: 'Av do Estado', city: 'Guarulhos', state: '',
-                                 postal_code: '01010-010', total_area: '10000', useful_area: '8000'
+                              address: 'Av do Estado', city: 'Guarulhos', state: '',
+                              postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     # Act
     result = warehouse.valid?
     # Assert
@@ -130,8 +132,8 @@ RSpec.describe Warehouse, type: :model do
   it 'Postal code is required' do
     # Arrange
     warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
-                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
-                                 postal_code: '', total_area: '10000', useful_area: '8000'
+                              address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
+                              postal_code: '', total_area: '10000', useful_area: '8000'
     # Act
     result = warehouse.valid?
     # Assert
@@ -141,8 +143,8 @@ RSpec.describe Warehouse, type: :model do
   it 'Total area is required' do
     # Arrange
     warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
-                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
-                                 postal_code: '01010-010', total_area: '', useful_area: '8000'
+                              address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
+                              postal_code: '01010-010', total_area: '', useful_area: '8000'
     # Act
     result = warehouse.valid?
     # Assert
@@ -152,8 +154,8 @@ RSpec.describe Warehouse, type: :model do
   it 'Usefull area is required' do
     # Arrange
     warehouse = Warehouse.new name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
-                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
-                                 postal_code: '01010-010', total_area: '10000', useful_area: ''
+                              address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
+                              postal_code: '01010-010', total_area: '10000', useful_area: ''
     # Act
     result = warehouse.valid?
     # Assert

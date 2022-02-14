@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class ProductModelsController < ApplicationController
   def show
     @product_model = ProductModel.find(params[:id])
-
   end
-  
+
   def new
     @product_model = ProductModel.new
     @suppliers = Supplier.all

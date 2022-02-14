@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class SuppliersController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  
+  before_action :authenticate_user!, only: %i[new create]
+
   def index
     @suppliers = Supplier.all
   end
@@ -25,6 +27,7 @@ class SuppliersController < ApplicationController
   end
 
   private
+
   def supplier_params
     params.require(:supplier).permit(:fantasy_name, :legal_name, :cnpj, :address, :phone, :email)
   end

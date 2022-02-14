@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 class WarehousesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  
+  before_action :authenticate_user!, only: %i[new create edit update]
+
   def show
     @warehouse = Warehouse.find(params[:id])
     @product_models = ProductModel.all
-
   end
 
   def new

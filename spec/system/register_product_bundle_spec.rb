@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'User registers a bundle' do
   it 'successfully' do
     # Arrange
-    user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
     supplier = Supplier.create! fantasy_name: 'Geek&Stuff', legal_name: 'Geek&Stuff LTDA INC',
                                 cnpj: '71348822000106', address: 'Av. Industrial, 1000, São Paulo',
                                 email: 'financeiro@ges.com.br', phone: '11 1234-5678'
@@ -18,15 +20,15 @@ describe 'User registers a bundle' do
                               weight: '200', supplier: supplier,
                               product_category: cat
     # Act
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Criar novo kit de produtos'
     fill_in 'Nome', with: 'Kit de copos'
     check 'Caneca Star Wars'
     check 'Copo Overwatch'
     click_on 'Gravar'
-    
-    # Assert 
+
+    # Assert
     expect(page).to have_content 'Kit de copos'
     expect(page).to have_content 'Caneca Star Wars'
     expect(page).to have_content p1.sku

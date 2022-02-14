@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductItemsController < ApplicationController
   def new_entry
     @product_models = ProductModel.all
@@ -15,7 +17,7 @@ class ProductItemsController < ApplicationController
     quantity.times do
       ProductItem.create(warehouse: w, product_model: pm)
     end
-    
+
     redirect_to w
   end
 end

@@ -3,10 +3,22 @@
 <h3>Boas vindas ao sistema de gestão de estoques</h3>
 
 <h2>Galpões Cadastrados</h2>
-<% @warehouses.each do |warehouse| %>
-  <div>
-    <%= link_to warehouse.name, warehouse %> [<%= warehouse.code %>]
-  </div>
-<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Galpão</th>
+      <th>Código</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @warehouses.each do |warehouse| %>
+      <tr>
+        <td><%= link_to warehouse.name, warehouse %></td>
+        <td>[<%= warehouse.code %>]</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= '(não há galpões cadastrados)' if @warehouses.empty? %>

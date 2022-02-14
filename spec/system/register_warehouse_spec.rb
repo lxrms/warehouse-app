@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'User registers a warehouse' do
@@ -22,10 +24,10 @@ describe 'User registers a warehouse' do
 
   it 'through a link in homepage' do
     # Arrange
-    user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
-    
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+
     # Act
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Cadastrar novo galpão'
     # Assert
@@ -44,12 +46,12 @@ describe 'User registers a warehouse' do
 
   it 'successfully' do
     # Arrange
-    user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
-    
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+
     # Act
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
     visit root_path
-    
+
     click_on 'Cadastrar novo galpão'
     fill_in 'Nome', with: 'Juiz de Fora'
     fill_in 'Código', with: 'JDF'
@@ -72,15 +74,14 @@ describe 'User registers a warehouse' do
     expect(page).to have_content 'Área Total: 5000 m²'
     expect(page).to have_content 'Área Útil: 3000 m²'
     expect(page).to have_content 'Galpão registrado com sucesso'
-
   end
 
   it 'and all the fields are required with error messages' do
     # Arrange
-    user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
-    
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+
     # Act
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
     visit root_path
 
     click_on 'Cadastrar novo galpão'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProductBundlesController < ApplicationController
   def new
     @product_bundle = ProductBundle.new

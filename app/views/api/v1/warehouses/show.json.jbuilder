@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.name @warehouse.name
 json.code @warehouse.code
 json.city @warehouse.city

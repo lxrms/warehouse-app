@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ProductModel, type: :model do
@@ -13,14 +15,14 @@ RSpec.describe ProductModel, type: :model do
   end
 
   it 'should generate SKU' do
-    #Arrange 
+    # Arrange
     s = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
                          cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
                          email: 'financeiro@lg.com.br', phone: '11 1234-5555'
     pc = ProductCategory.create! name: 'Utensílios de Cozinha'
     pm = ProductModel.create! name: 'Caneca', height: '14', width: '10',
                               length: '12', weight: '200', supplier: s,
-                              product_category: pc 
+                              product_category: pc
     # Act
     pm.save
     # Assert
@@ -31,12 +33,12 @@ RSpec.describe ProductModel, type: :model do
   it 'should generate a random SKU' do
     # Arrange
     supplier = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
-      cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
-      email: 'financeiro@lg.com.br', phone: '11 1234-5555'
+                                cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
+                                email: 'financeiro@lg.com.br', phone: '11 1234-5555'
     product_category = ProductCategory.create! name: 'Utensílios de Cozinha'
     product_model = ProductModel.new name: 'Caneca', height: '14', width: '10',
-                    length: '12', weight: '200', supplier: supplier,
-                    product_category: product_category 
+                                     length: '12', weight: '200', supplier: supplier,
+                                     product_category: product_category
     allow(SecureRandom).to receive(:alphanumeric).with(20).and_return '6WS4S4S4S4S4S4S4S4S4'
     # Act
     product_model.save!
@@ -47,12 +49,12 @@ RSpec.describe ProductModel, type: :model do
   it 'should not update the sku' do
     # Arrange
     supplier = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
-      cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
-      email: 'financeiro@lg.com.br', phone: '11 1234-5555'
+                                cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
+                                email: 'financeiro@lg.com.br', phone: '11 1234-5555'
     product_category = ProductCategory.create! name: 'Utensílios de Cozinha'
     product_model = ProductModel.new name: 'Caneca', height: '14', width: '10',
-                    length: '12', weight: '200', supplier: supplier,
-                    product_category: product_category 
+                                     length: '12', weight: '200', supplier: supplier,
+                                     product_category: product_category
     product_model.save
     sku = product_model.sku
 
@@ -67,19 +69,19 @@ RSpec.describe ProductModel, type: :model do
   it 'should generate unique sku' do
     # Arrange
     supplier = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
-      cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
-      email: 'financeiro@lg.com.br', phone: '11 1234-5555'
+                                cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
+                                email: 'financeiro@lg.com.br', phone: '11 1234-5555'
     product_category = ProductCategory.create! name: 'Utensílios de Cozinha'
 
     product_model1 = ProductModel.create! name: 'Caneca', height: '14', width: '10',
-                                         length: '12', weight: '200', supplier: supplier,
-                                         product_category: product_category 
+                                          length: '12', weight: '200', supplier: supplier,
+                                          product_category: product_category
 
     # Act
     allow(SecureRandom).to receive(:alphanumeric).with(20).and_return product_model1.sku
     product_model2 = ProductModel.create! name: 'Caneca', height: '14', width: '10',
                                           length: '12', weight: '200', supplier: supplier,
-                                          product_category: product_category 
+                                          product_category: product_category
 
     result = product_model2.valid?
     # Assert
@@ -89,13 +91,13 @@ RSpec.describe ProductModel, type: :model do
   it 'should sku must be upcase' do
     # Arrange
     supplier = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
-      cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
-      email: 'financeiro@lg.com.br', phone: '11 1234-5555'
+                                cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
+                                email: 'financeiro@lg.com.br', phone: '11 1234-5555'
     product_category = ProductCategory.create! name: 'Utensílios de Cozinha'
 
     product_model = ProductModel.create! name: 'Caneca', height: '14', width: '10',
                                          length: '12', weight: '200', supplier: supplier,
-                                         product_category: product_category 
+                                         product_category: product_category
 
     # Act
     sku = product_model.sku

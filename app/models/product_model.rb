@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class ProductModel < ApplicationRecord
-  belongs_to :supplier 
-  belongs_to :product_category 
+  belongs_to :supplier
+  belongs_to :product_category
 
   has_many :product_bundle_items
   has_many :product_bundles, through: :product_bundle_items
   has_many :product_items
   has_many :warehouses, through: :product_items
-  
+
   before_create :generate_sku
 
   validates :sku, uniqueness: true
@@ -14,7 +16,7 @@ class ProductModel < ApplicationRecord
   def dimensions
     "#{height} x #{width} x #{length}"
   end
-  
+
   private
 
   def generate_sku

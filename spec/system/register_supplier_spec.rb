@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'User can register supplier' do
@@ -11,7 +13,7 @@ describe 'User can register supplier' do
 
   it 'but visitor can\'t access new_supplier directly' do
     # Arrange
-    
+
     # Act
     visit new_supplier_path
     # Assert
@@ -20,10 +22,10 @@ describe 'User can register supplier' do
 
   it 'successfully' do
     # Arrange
-    user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
-    
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+
     # Act
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Cadastrar novo fornecedor'
     fill_in 'Nome Fantasia', with: 'Toei'
@@ -44,10 +46,10 @@ describe 'User can register supplier' do
 
   it 'but doesn\t fill the required fields' do
     # Arrange
-    user = User.create!(:email => 'test@example.com', :password => 'f4k3p455w0rd')
-    
+    user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
+
     # Act
-    login_as(user, :scope => :user)
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Cadastrar novo fornecedor'
     fill_in 'Nome Fantasia', with: ''

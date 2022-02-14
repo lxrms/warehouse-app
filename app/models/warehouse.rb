@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Warehouse < ApplicationRecord
   validates :name, :code, :description, :address,
             :city, :state, :postal_code,
@@ -8,5 +10,4 @@ class Warehouse < ApplicationRecord
 
   has_many :product_items
   has_many :product_models, through: :product_items
-
 end

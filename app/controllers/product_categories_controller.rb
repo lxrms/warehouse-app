@@ -1,6 +1,7 @@
-class ProductCategoriesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+# frozen_string_literal: true
 
+class ProductCategoriesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create]
 
   def new
     @product_category = ProductCategory.new
@@ -20,6 +21,6 @@ class ProductCategoriesController < ApplicationController
   private
 
   def product_category_params
-    params.require(:product_category).permit(:name)  
+    params.require(:product_category).permit(:name)
   end
 end
