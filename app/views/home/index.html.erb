@@ -1,24 +1,29 @@
-<h1>WareHouse App</h1>
+<h1 class="title">Galpões Cadastrados</h1>
 
-<h3>Boas vindas ao sistema de gestão de estoques</h3>
+<% unless @warehouses.empty?%>
 
-<h2>Galpões Cadastrados</h2>
+  <%= form_with url: '/s/', method: :get do |form| %>
+    <%= form.text_field 'search' %>
+    <%= form.submit 'Buscar' %>
+  <% end %>
 
-<table class="table mx-auto">
-  <thead>
-    <tr>
-      <th>Galpão</th>
-      <th>Código</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @warehouses.each do |warehouse| %>
+  <table class="table mx-auto">
+    <thead>
       <tr>
-        <td><%= link_to warehouse.name, warehouse %></td>
-        <td>[<%= warehouse.code %>]</td>
+        <th>Galpão</th>
+        <th>Código</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @warehouses.each do |warehouse| %>
+        <tr>
+          <td><%= link_to warehouse.name, warehouse %></td>
+          <td>[<%= warehouse.code %>]</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= '(não há galpões cadastrados)' if @warehouses.empty? %>
+<% else %>
+  <p>(não há galpões cadastrados)</p>
+<% end %>

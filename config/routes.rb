@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :suppliers,          only: %i[new create show index]
   resources :warehouses,         only: %i[new create show edit update]
 
+  get 's', to: 'home#search'
+  
   namespace :api, format: 'json' do
     namespace :v1 do
       resources :warehouses,     only: %i[index show create]
