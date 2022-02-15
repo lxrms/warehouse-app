@@ -31,6 +31,8 @@
           <div class="navbar-dropdown">
             <%= link_to 'Cadastrar modelo de produto', new_product_model_path, class: "navbar-item" %>
             <%= link_to 'Ver modelos de produtos', product_models_path, class: "navbar-item" %>
+            <%= link_to 'Criar novo kit de produtos', new_product_bundle_path, class: "navbar-item" %>
+
           </div>
         </div>
 
@@ -48,7 +50,6 @@
             Galpões
           </a>
           <div class="navbar-dropdown">
-            <%= link_to 'Entrada de items', product_items_entry_path, class: "navbar-item" %>
             <%= link_to 'Cadastrar novo galpão', new_warehouse_path, class: "navbar-item" %>
           </div>
         </div>
@@ -64,10 +65,10 @@
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            Kits
+            Itens
           </a>
           <div class="navbar-dropdown">
-            <%= link_to 'Criar novo kit de produtos', new_product_bundle_path, class: "navbar-item" %>
+            <%= link_to 'Entrada de items', product_items_entry_path, class: "navbar-item" %>
           </div>
         </div>
       <% end %>
