@@ -27,7 +27,7 @@ describe 'Visitor opens homepage' do
     expect(page).to have_content 'Porto Alegre'
     expect(page).to have_content 'POA'
 
-    expect(page).not_to have_content '(não há galpões cadastrados)'
+    expect(page).not_to have_content '(nenhum galpão encontrado)'
   end
 
   it 'and there aren\'t registered warehouses' do
@@ -36,7 +36,7 @@ describe 'Visitor opens homepage' do
     visit root_path
 
     # Assert
-    expect(page).to have_content '(não há galpões cadastrados)'
+    expect(page).to have_content '(nenhum galpão encontrado)'
   end
 
   it 'doesnt show details of the registered warehouses' do
@@ -78,6 +78,6 @@ describe 'Visitor opens homepage' do
     expect(page).not_to have_content 'Guarulhos'
     expect(page).not_to have_content 'GRU'
 
-    expect(page).not_to have_content '(não há galpões cadastrados)'
+    expect(page).not_to have_content '(nenhum galpão encontrado)'
   end
 end
