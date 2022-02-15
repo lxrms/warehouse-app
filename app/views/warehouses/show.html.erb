@@ -1,7 +1,7 @@
-<h2><%= @warehouse.name %> [<%= @warehouse.code %>]</h2>
+<h2 class="title"><%= @warehouse.name %> [<%= @warehouse.code %>]</h2>
 
 <dl>
-  <dt>Descrição:</dt>
+  <dt class="title is-4">Descrição:</dt>
   <dd><%= @warehouse.description %></dd>
   
   <dt>Endereço:</dt>
@@ -20,7 +20,9 @@
   <p><%= link_to 'Editar', edit_warehouse_path(@warehouse)%></p>
 <% end %>
 
-<h2>Estoque</h2>
+<br>
+
+<h2 class="title is-4">Estoque:</h2>
 
 
 <% @items = @warehouse.product_items.group(:product_model).count %>
@@ -32,8 +34,8 @@
   </div>
 <% end %>
 
-
-<h2>Entrada de Itens</h2>
+<br>
+<h2 class="title is-4">Entrada de Itens</h2>
 <%= form_with url: product_items_entry_path do |form|  %>
   <%= form.hidden_field :warehouse_id, value: @warehouse.id %>
   <div>
@@ -48,7 +50,5 @@
     <%= form.submit 'Confirmar' %>
   </div>
 <% end %>
-
-
-
+<br>
 <p><%= link_to 'Voltar', root_path%></p>

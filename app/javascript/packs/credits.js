@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Criado por Alex Ramos')
     } else {
       window.location.href = "/";
-
     }
-
   })
 })

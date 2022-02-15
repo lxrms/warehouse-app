@@ -16,17 +16,17 @@
   </head>
 
   <body>
-    <section class="section">
-      <div class="container">
-        <header>
-          <%= render partial: 'layouts/nav' %>
-          <%= render partial: 'layouts/flash' %>
-        </header>
-        <main>
-          <%= yield %>
-        </main>
-        <%= render partial: 'layouts/footer' %>
-      </div>
-    </section>
+    <div class="container has-text-centered">
+      <header>
+        <%= render partial: 'layouts/nav' %>
+        <%= render partial: 'layouts/flash' %>
+      </header>
+      <br><br>
+      <main class="container" >
+        <%= yield %>
+      </main>
+      <br><br>
+      <%= render partial: 'layouts/footer' %>
+    </div>
   </body>
 </html>

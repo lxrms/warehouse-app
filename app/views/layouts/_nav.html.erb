@@ -1,12 +1,12 @@
 
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation" data-no-turbolink>
   <div class="navbar-brand">
     <span class="navbar-item" href="/">
       <img src="/logo.png" height="28" id="logo">
     </span>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" data-no-turbolink>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -33,6 +33,7 @@
           </a>
           <div class="navbar-dropdown">
             <%= link_to 'Cadastrar modelo de produto', new_product_model_path, class: "navbar-item" %>
+            <%= link_to 'Ver modelos de produtos', product_models_path, class: "navbar-item" %>
           </div>
         </div>
 
@@ -77,20 +78,12 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
           <% if user_signed_in? %>
-            <%= "Olá, #{current_user.email}" %>&nbsp;|&nbsp;<%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+            <%= "Olá, #{current_user.email}" %>&nbsp;|&nbsp;<%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "button is-danger is-light" %>
           <% else %>
             <%= link_to 'Logar', new_user_session_path, class: "button is-primary" %>
           <% end %>
-
-        </div>
       </div>
     </div>
-
-
-
-
-
   </div>
 </nav>

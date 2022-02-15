@@ -29,6 +29,7 @@ FileUtils.chdir APP_ROOT do
 
   puts "\n== Preparing database =="
   system! 'rails db:prepare'
+  system! 'rails db:reset'
 
   puts "\n== Removing old logs and tempfiles =="
   system! 'bin/rails log:clear tmp:clear'

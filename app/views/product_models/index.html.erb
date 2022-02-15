@@ -1,0 +1,24 @@
+<% if !@product_models.empty? %>
+  <table class="table mx-auto">
+    <thead>
+      <tr>
+        <th>Produto</th>
+        <th>SKU</th>
+        <th>Fornecedor</th>
+        <th>Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @product_models.each do |pm| %>
+        <tr id="product<%= pm.id %>">
+          <td><%=link_to pm.name, product_model_path(pm) %></td>
+          <td><%= pm.sku %></td>
+          <td><%= link_to pm.supplier.fantasy_name, supplier_path(pm.supplier) %></td>
+          <td><%= pm.product_category.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h3>(nenhum modelo de produto cadastrado)</h3>
+<% end %>

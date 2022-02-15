@@ -13,7 +13,7 @@ class ProductCategoriesController < ApplicationController
       flash[:notice] = 'Categoria de produto registrada com sucesso'
       redirect_to root_path
     else
-      flash[:alert] = 'Nao foi possível registrar a categoria de produto'
+      flash.now[:alert] = 'Nao foi possível registrar a categoria de produto'
       render 'new'
     end
   end

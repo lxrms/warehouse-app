@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class ProductModelsController < ApplicationController
+  def index
+    @product_models = ProductModel.all
+  end
+  
   def show
     @product_model = ProductModel.find(params[:id])
   end

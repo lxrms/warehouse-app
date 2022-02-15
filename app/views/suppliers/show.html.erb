@@ -19,14 +19,14 @@
 </dl>
 
 <h2>Produtos do fornecedor:</h2>
-<table>
+<table class="table mx-auto">
   <tr>
     <th>Produto</th>
     <th>SKU</th>
   </tr>
   <% @supplier.product_models.each do |product_model| %>
     <tr>
-      <td><%= product_model.name %></td>
+      <td><%= link_to product_model.name, product_model_path(product_model) %></td>
       <td><%= product_model.sku %></td>
     </tr>
   <% end %>

@@ -4,7 +4,25 @@
 
 Este é um projeto de exercício da turma 7 do programa Quero Ser Dev da Locaweb. O projeto consiste num sistema de gestão de galpões e de seus respectivos estoques de produtos.
 
+## Download e configuração
+```
+git clone git@git-qsd.campuscode.com.br:qsd-7/warehouse-app.git
+```
+```
+cd warehouse-app
+```
+```
+bin/setup
+```
+```
+rails s
+```
 
+
+## Login
+
+Usuário: admin@email.com
+Senha: 12345678
 
 ## API
 
