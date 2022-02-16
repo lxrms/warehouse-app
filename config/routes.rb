@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   resources :product_categories, only: %i[new create]
   resources :product_models,     only: %i[new create show index]
   resources :suppliers,          only: %i[new create show index]
-  resources :warehouses,         only: %i[new create show edit update]
+  resources :warehouses,         only: %i[new create show edit update] do
+    get 'search', on: :collection, to: 'home#search'
+  end
 
-  get 's', to: 'home#search'
   
   namespace :api, format: 'json' do
     namespace :v1 do

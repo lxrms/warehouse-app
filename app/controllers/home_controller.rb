@@ -8,10 +8,8 @@ class HomeController < ApplicationController
 
   def search
     term = params[:search]
-    @warehouses = Warehouse.all
-    @warehouses = @warehouses.filter {|w| w.name.downcase.include?(term.downcase) ||
-                                          w.code.downcase.include?(term.downcase) ||
-                                          w.city.downcase.include?(term.downcase)}
+    @warehouses = Warehouse.where 'name like ? OR code like ? OR city like ?',
+                                  "%#{params[:q]}%", "%#{params[:q]}%", "%#{params[:q]}%"
     render 'index'
   end
 
