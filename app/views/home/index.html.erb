@@ -1,10 +1,12 @@
+<%= javascript_pack_tag 'busca-animacao' %>
+
 <h1 class="title">Galpões Cadastrados</h1>
 
 <% unless @warehouses.empty? %>
 
   <%= form_with url: search_warehouses_path, method: :get do |form| %>
-    <%= form.text_field :q, class: "input is-small", style: 'width:200px' %>
-    <%= submit_tag 'Buscar', class: 'button is-primary is-small' %>
+    <%= form.text_field :q, class: "input is-small", style: 'width:200px', id: 'busca' %>
+    <%= submit_tag 'Buscar', class: 'button is-primary is-small'%>
   <% end %>
   <br>
   <table class="table mx-auto">

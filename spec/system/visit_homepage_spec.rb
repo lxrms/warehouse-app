@@ -68,7 +68,7 @@ describe 'Visitor opens homepage' do
 
     # Act
     visit root_path
-    fill_in 'search', with: 'legr'
+    fill_in 'q', with: 'legr'
     click_on 'Buscar'
 
     # Assert

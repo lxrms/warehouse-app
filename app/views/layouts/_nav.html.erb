@@ -1,12 +1,12 @@
 
 
-<nav class="navbar" role="navigation" aria-label="main navigation" data-no-turbolink>
+<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <span class="navbar-item" href="/">
-      <img src="/logo.png" height="28" id="logo">
+    <span class="navbar-item">
+      <img src="/logo.png"  id="logo">
     </span>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" data-no-turbolink>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -78,9 +78,14 @@
     <div class="navbar-end">
       <div class="navbar-item">
           <% if user_signed_in? %>
-            <%= "Olá, #{current_user.email}" %>&nbsp;|&nbsp;<%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "button is-danger is-light" %>
+            <%= "Olá, #{current_user.name}" %>
+            &nbsp;
+            <%= button_to 'Sair', destroy_user_session_path, method: :delete,
+                                class: "button is-danger is-light is-small
+                                is-outlined is-rounded" %>
           <% else %>
-            <%= link_to 'Logar', new_user_session_path, class: "button is-primary" %>
+            <%= link_to 'Logar', new_user_session_path, class: "button is-primary
+                                 is-light is-outlined is-rounded" %>
           <% end %>
       </div>
     </div>

@@ -24,7 +24,7 @@ describe 'User enters new items' do
     # Assert
     expect(current_path).to eq warehouse_path(warehouse)
     expect(page).to have_css 'h2', text: 'Estoque'
-    within("div#product-#{pm1.id}") do
+    within("tr#product-#{pm1.id}") do
       expect(page).to have_content 'Caneca'
       expect(page).to have_content '100'
     end
@@ -61,9 +61,9 @@ describe 'User enters new items' do
     # Assert
     expect(current_path).to eq warehouse_path(warehouse)
     expect(page).to have_css 'h2', text: 'Estoque'
-    within("div#product-#{pm1.id}") do
+    within("tr#product-#{pm1.id}") do
       expect(page).to have_content 'Caneca'
-      expect(page).to have_content 'Quantidade: 2'
+      expect(page).to have_content '2'
     end
   end
 end

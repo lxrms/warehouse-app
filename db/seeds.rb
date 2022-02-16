@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-user = User.create(email: 'admin@email.com', password: '12345678')
+user = User.create(name: 'Locaweb/Campus', email: 'admin@email.com', password: '12345678')
 warehouse1 = Warehouse.create! name: 'São Caetano', code: 'SCS',
                                address: 'Av Rio Branco', city: 'São Caetano',
                                state: 'SP', postal_code: '36000-000',
