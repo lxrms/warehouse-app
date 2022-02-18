@@ -1,4 +1,4 @@
-<h1>Cadastrar categoria de produto</h1>
+<h1 class="title">Cadastrar categoria de produto</h1>
 
 <% if @product_category.errors.any? %>
   <span>Verifique os erros abaixo:</span>
@@ -11,10 +11,11 @@
 
 <%= form_with model: @product_category do |form| %>
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: 'label' %>
+    <%= form.text_field :name, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.submit 'Gravar' %>
+    <%= form.submit 'Gravar', class: "button is-primary" %>
   </div>
 <% end %>

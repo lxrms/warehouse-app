@@ -4,9 +4,9 @@ class ProductModel < ApplicationRecord
   belongs_to :supplier
   belongs_to :product_category
 
-  has_many :product_bundle_items
+  has_many :product_bundle_items, dependent: nil
   has_many :product_bundles, through: :product_bundle_items
-  has_many :product_items
+  has_many :product_items, dependent: nil
   has_many :warehouses, through: :product_items
 
   before_create :generate_sku

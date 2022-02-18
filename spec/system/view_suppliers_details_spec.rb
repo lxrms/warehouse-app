@@ -30,8 +30,8 @@ describe 'Visitor sees supplier details' do
     cat = ProductCategory.create! name: 'Utensílios de Cozinha'
     p1 = ProductModel.create! name: 'Caneca Star Wars', height: '14', width: '10', length: '8',
                               weight: '300', supplier: supplier, product_category: cat
-    p2 = ProductModel.create! name: 'Pelúcia Dumbo', height: '50', width: '40', length: '20',
-                              weight: '400', supplier: supplier, product_category: cat
+    ProductModel.create! name: 'Pelúcia Dumbo', height: '50', width: '40', length: '20',
+                         weight: '400', supplier: supplier, product_category: cat
 
     # Act
     visit root_path

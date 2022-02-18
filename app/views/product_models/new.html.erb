@@ -1,35 +1,36 @@
-<h1>Cadastrar modelo de produto</h1>
+<h1 class="title">Cadastrar modelo de produto</h1>
 
 <%= form_with model: @product_model do |f| %>
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.label :name, class: 'label' %>
+    <%= f.text_field :name, class: "input is-small", style: 'width:200px' %>
   </div>
   <div>
-    <%= f.label :weight %>
-    <%= f.number_field :weight %>
+    <%= f.label :weight, class: 'label' %>
+    <%= f.number_field :weight, class: "input is-small", style: 'width:200px' %>
   </div>
   <div>
-    <%= f.label :height %>
-    <%= f.number_field :height %>
+    <%= f.label :height, class: 'label' %>
+    <%= f.number_field :height, class: "input is-small", style: 'width:200px' %>
   </div>
   <div>
-    <%= f.label :width %>
-    <%= f.number_field :width %>
+    <%= f.label :width, class: 'label' %>
+    <%= f.number_field :width, class: "input is-small", style: 'width:200px' %>
   </div>
   <div>
-    <%= f.label :length %>
-    <%= f.number_field :length %>
+    <%= f.label :length, class: 'label' %>
+    <%= f.number_field :length, class: "input is-small", style: 'width:200px' %>
   </div>
   <div>
-    <%= f.label :product_category_id %>
-    <%= f.collection_select :product_category_id, @product_categories, :id, :name %>
+    <%= f.label :product_category_id, class: 'label' %>
+    <%= f.collection_select :product_category_id, @product_categories, :id, :name, {}, class: "select" %>
   </div>
   <div>
-    <%= f.label :supplier_id %>
-    <%= f.collection_select :supplier_id, @suppliers, :id, :fantasy_name %>
+    <%= f.label :supplier_id, class: 'label' %>
+    <%= f.collection_select :supplier_id, @suppliers, :id, :fantasy_name, {}, class: "select" %>
   </div>
+  <br>
   <div>
-    <%= f.submit 'Gravar' %>
+    <%= f.submit 'Gravar', class: "button is-primary"  %>
   </div>
 <% end %>

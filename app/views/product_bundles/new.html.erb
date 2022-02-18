@@ -1,19 +1,23 @@
-<h1>Novo kit de produtos</h1>
+<h1 class="title">Novo kit de produtos</h1>
 
 <%= form_with model: @product_bundle do |form| %>
   <div>
-    <%= form.label :name%>
-    <%= form.text_field :name%>
+    <br>
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "input is-small", style: 'width:200px'%>
   </div>
   <div>
-    <%= form.label :sku%>
-    <%= form.text_field :sku%>
+    <br>
+    <%= form.label :sku, class: "label" %>
+    <%= form.text_field :sku, class: "input is-small", style: 'width:200px'%>
   </div>
   <div>
-    <p>Escolha os produtos:</p>
-    <%= form.collection_check_boxes :product_model_ids, @product_models, :id, :name %>
+    <br>
+    <p class="label" >Escolha os produtos:</p>
+    <%= form.collection_check_boxes :product_model_ids, @product_models, :id, :name, {}, class: "checkbox" %>
   </div>
+  <br>
   <div>
-    <%= form.submit 'Gravar' %>
+    <%= form.submit 'Gravar', class: "button is-primary" %>
   </div>
 <% end %>

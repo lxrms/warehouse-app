@@ -66,29 +66,7 @@ RSpec.describe ProductModel, type: :model do
     expect(product_model.sku).to eq sku
   end
 
-  it 'should generate unique sku' do
-    # Arrange
-    supplier = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
-                                cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
-                                email: 'financeiro@lg.com.br', phone: '11 1234-5555'
-    product_category = ProductCategory.create! name: 'Utensílios de Cozinha'
-
-    product_model1 = ProductModel.create! name: 'Caneca', height: '14', width: '10',
-                                          length: '12', weight: '200', supplier: supplier,
-                                          product_category: product_category
-
-    # Act
-    allow(SecureRandom).to receive(:alphanumeric).with(20).and_return product_model1.sku
-    product_model2 = ProductModel.create! name: 'Caneca', height: '14', width: '10',
-                                          length: '12', weight: '200', supplier: supplier,
-                                          product_category: product_category
-
-    result = product_model2.valid?
-    # Assert
-    expect(result).to eq false
-  end
-
-  it 'should sku must be upcase' do
+  it ' sku must be upcase' do
     # Arrange
     supplier = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
                                 cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
@@ -103,5 +81,24 @@ RSpec.describe ProductModel, type: :model do
     sku = product_model.sku
     # Assert
     expect(sku =~ /A-Z/).to eq nil
+  end
+
+  it 'sku must be unique' do
+    # Arrange
+    supplier = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
+                                cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
+                                email: 'financeiro@lg.com.br', phone: '11 1234-5555'
+    product_category = ProductCategory.create! name: 'Utensílios de Cozinha'
+
+    product_model1 = ProductModel.create! name: 'Caneca', height: '14', width: '10',
+                                          length: '12', weight: '200', supplier: supplier,
+                                          product_category: product_category
+
+    # Act
+    product_model2 = ProductModel.new name: 'Caneca', height: '14', width: '10',
+                                      length: '12', weight: '200', supplier: supplier,
+                                      product_category: product_category, sku: product_model1.sku
+    # Assert
+    expect(product_model2.valid?).to eq false
   end
 end

@@ -1,4 +1,4 @@
-<h1>Novo Galpão</h1>
+<h1 class="title">Novo Galpão</h1>
 
 <% if @warehouse.errors.any? %>
   <span>Verifique os erros abaixo:</span>
@@ -12,43 +12,51 @@
 
 <%= form_with model: @warehouse do |form| %>
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "label" %>
+    <%= form.text_field :name, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :code %>
-    <%= form.text_field :code %>
+    <%= form.label :code, class: "label" %>
+    <%= form.text_field :code, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :description %>
+    <%= form.label :description, class: "label" %>
     <%= form.text_area :description %>
   </div>
+  <br>
   <div>
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.label :address, class: "label" %>
+    <%= form.text_field :address, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :city %>
-    <%= form.text_field :city %>
+    <%= form.label :city, class: "label" %>
+    <%= form.text_field :city, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :state %>
-    <%= form.text_field :state %>
+    <%= form.label :state, class: "label" %>
+    <%= form.text_field :state, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :postal_code %>
-    <%= form.text_field :postal_code %>
+    <%= form.label :postal_code, class: "label" %>
+    <%= form.text_field :postal_code, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :total_area %>
-    <%= form.text_field :total_area %>
+    <%= form.label :total_area, class: "label" %>
+    <%= form.text_field :total_area, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :useful_area %>
-    <%= form.text_field :useful_area %>
+    <%= form.label :useful_area, class: "label" %>
+    <%= form.text_field :useful_area, class: "input is-small", style: 'width:200px' %>
   </div>
     <div>
-    <%= form.submit 'Gravar' %>
+    <%= form.submit 'Gravar', class: "button is-primary"  %>
   </div>
 
 <% end %>

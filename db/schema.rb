@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2022_02_16_134914) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_product_categories_on_name", unique: true
   end
 
   create_table "product_items", force: :cascade do |t|
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 2022_02_16_134914) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "product_category_id", null: false
     t.index ["product_category_id"], name: "index_product_models_on_product_category_id"
+    t.index ["sku"], name: "index_product_models_on_sku", unique: true
     t.index ["supplier_id"], name: "index_product_models_on_supplier_id"
   end
 
@@ -67,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_02_16_134914) do
     t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["cnpj"], name: "index_suppliers_on_cnpj", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_02_16_134914) do
     t.string "postal_code"
     t.integer "total_area"
     t.integer "useful_area"
+    t.index ["code"], name: "index_warehouses_on_code", unique: true
   end
 
   add_foreign_key "product_bundle_items", "product_bundles"

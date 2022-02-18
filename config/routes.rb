@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     get 'search', on: :collection, to: 'home#search'
   end
 
-  
   namespace :api, format: 'json' do
     namespace :v1 do
       resources :warehouses,     only: %i[index show create]

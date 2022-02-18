@@ -5,9 +5,9 @@ require 'rails_helper'
 RSpec.describe Warehouse, type: :model do
   it 'Does not allow duplicated codes' do
     # Arrange
-    warehouse = Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
-                                 address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
-                                 postal_code: '01010-010', total_area: '10000', useful_area: '8000'
+    Warehouse.create name: 'Guarulhos', code: 'GRU', description: 'Galpao grande',
+                     address: 'Av do Estado', city: 'Guarulhos', state: 'SP',
+                     postal_code: '01010-010', total_area: '10000', useful_area: '8000'
     warehouse2 = Warehouse.new  name: 'Porto Alegre 2', code: 'GRU', description: 'Galpao medio',
                                 address: 'Av Sapopemba', city: 'Porto Alegre', state: 'RS',
                                 postal_code: '05010-010', total_area: '8000', useful_area: '7500'

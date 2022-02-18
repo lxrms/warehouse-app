@@ -1,4 +1,4 @@
-<h1>Cadastrar novo fornecedor</h1>
+<h1 class="title">Cadastrar novo fornecedor</h1>
 
 <% if @supplier.errors.any? %>
   <span>Verifique os erros abaixo:</span>
@@ -11,30 +11,36 @@
 
 <%= form_with model: @supplier do |form| %>
   <div>
-    <%= form.label :fantasy_name %>
-    <%= form.text_field :fantasy_name %>
+    <%= form.label :fantasy_name, class: "label" %>
+    <%= form.text_field :fantasy_name, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :legal_name %>
-    <%= form.text_field :legal_name %>
+    <%= form.label :legal_name, class: "label" %>
+    <%= form.text_field :legal_name, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :cnpj %>
-    <%= form.text_field :cnpj %>
+    <%= form.label :cnpj, class: "label" %>
+    <%= form.text_field :cnpj, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.label :email, class: "label" %>
+    <%= form.text_field :email, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.label :address, class: "label" %>
+    <%= form.text_field :address, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+    <%= form.label :phone, class: "label" %>
+    <%= form.text_field :phone, class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.submit 'Gravar' %>
+    <%= form.submit 'Gravar', class: "button is-primary"  %>
   </div>
 <% end %>

@@ -8,5 +8,7 @@ class CreateWarehouses < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :warehouses, :code, unique: true
+
   end
 end

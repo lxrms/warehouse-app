@@ -5,11 +5,11 @@ require 'rails_helper'
 describe 'User edits a warehouse' do
   it 'but is not logged in' do
     # Arrange
-    warehouse = Warehouse.create! name: 'São Caetano', code: 'SCS',
-                                  address: 'Av Rio Branco', city: 'São Caetano',
-                                  state: 'SP', postal_code: '36000-000',
-                                  description: 'Um galpão de médio porte',
-                                  total_area: '1000', useful_area: '800'
+    Warehouse.create! name: 'São Caetano', code: 'SCS',
+                      address: 'Av Rio Branco', city: 'São Caetano',
+                      state: 'SP', postal_code: '36000-000',
+                      description: 'Um galpão de médio porte',
+                      total_area: '1000', useful_area: '800'
     # Act
     visit root_path
     click_on 'São Caetano'
@@ -33,11 +33,11 @@ describe 'User edits a warehouse' do
   it 'successfully' do
     # Arrange
     user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
-    warehouse = Warehouse.create! name: 'São Caetano', code: 'SCS',
-                                  address: 'Av Rio Branco', city: 'São Caetano',
-                                  state: 'SP', postal_code: '36000-000',
-                                  description: 'Um galpão de médio porte',
-                                  total_area: '1000', useful_area: '800'
+    Warehouse.create! name: 'São Caetano', code: 'SCS',
+                      address: 'Av Rio Branco', city: 'São Caetano',
+                      state: 'SP', postal_code: '36000-000',
+                      description: 'Um galpão de médio porte',
+                      total_area: '1000', useful_area: '800'
     # Act
     login_as(user, scope: :user)
     visit root_path
@@ -61,11 +61,11 @@ describe 'User edits a warehouse' do
   it 'unsuccessfully' do
     # Arrange
     user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
-    warehouse = Warehouse.create! name: 'São Caetano', code: 'SCS',
-                                  address: 'Av Rio Branco', city: 'São Caetano',
-                                  state: 'SP', postal_code: '36000-000',
-                                  description: 'Um galpão de médio porte',
-                                  total_area: '1000', useful_area: '800'
+    Warehouse.create! name: 'São Caetano', code: 'SCS',
+                      address: 'Av Rio Branco', city: 'São Caetano',
+                      state: 'SP', postal_code: '36000-000',
+                      description: 'Um galpão de médio porte',
+                      total_area: '1000', useful_area: '800'
     # Act
     login_as(user, scope: :user)
     visit root_path

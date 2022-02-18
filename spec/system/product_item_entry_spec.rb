@@ -10,7 +10,7 @@ describe 'User enters new items' do
     s = create(:supplier)
     pc = create(:product_category)
     pm1 = create(:product_model, name: 'Caneca', supplier: s, product_category: pc)
-    pm2 = create(:product_model, name: 'Pratos', supplier: s, product_category: pc)
+    create(:product_model, name: 'Pratos', supplier: s, product_category: pc)
 
     # Act
     login_as(user)
@@ -45,9 +45,9 @@ describe 'User enters new items' do
     pm1 = ProductModel.create! name: 'Caneca', height: '14', width: '10',
                                length: '12', weight: '200', supplier: s,
                                product_category: pc
-    pm2 = ProductModel.create! name: 'Travesseiro', height: '124', width: '102',
-                               length: '122', weight: '2002', supplier: s,
-                               product_category: pc
+    ProductModel.create! name: 'Travesseiro', height: '124', width: '102',
+                         length: '122', weight: '2002', supplier: s,
+                         product_category: pc
 
     # Act
     login_as(user)

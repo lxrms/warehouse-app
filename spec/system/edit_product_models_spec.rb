@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'User gets to see all product models registered' do
@@ -6,9 +8,9 @@ describe 'User gets to see all product models registered' do
     s1 = Supplier.create! fantasy_name: 'Samsung', legal_name: 'Samsung do Brasil Ltda',
                           cnpj: '71348822000106', address: 'Av. Industrial, 1000, São Paulo',
                           email: 'financeiro@samsung.com.br', phone: '11 1234-5678'
-    s2 = Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
-                          cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
-                          email: 'financeiro@lg.com.br', phone: '11 1234-5555'
+    Supplier.create! fantasy_name: 'LG', legal_name: 'LG do Brasil Ltda',
+                     cnpj: '61475820000124', address: 'Av. Brigadeiro, 100, São Paulo',
+                     email: 'financeiro@lg.com.br', phone: '11 1234-5555'
     pc = ProductCategory.create! name: 'Utensílios de Cozinha'
     user = User.create!(email: 'test@example.com', password: 'f4k3p455w0rd')
     pm1 = ProductModel.create!(name: 'Cadeira', weight: 500, height: 70, width: 80,
@@ -19,7 +21,7 @@ describe 'User gets to see all product models registered' do
     login_as(user, scope: :user)
     visit root_path
     click_on 'Ver modelos de produtos'
-    within("tr#product#{ pm1.id }") do
+    within("tr#product#{pm1.id}") do
       click_on 'Editar'
     end
     fill_in 'Nome', with: 'Cadeira bonita'
