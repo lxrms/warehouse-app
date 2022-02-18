@@ -2,8 +2,8 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <span class="navbar-item" href="/">
-      <img src="/logo.png" height="28" id="logo">
+    <span class="navbar-item">
+      <img src="/logo.png"  id="logo">
     </span>
 
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -15,9 +15,6 @@
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <% if user_signed_in? %>
-        <%= link_to 'Entrada de items', product_items_entry_path, class: "navbar-item" %>
-      <% end %>
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           Fornecedores
@@ -29,17 +26,19 @@
       <% if user_signed_in? %>
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            Modelo de produto
+            Modelos
           </a>
           <div class="navbar-dropdown">
             <%= link_to 'Cadastrar modelo de produto', new_product_model_path, class: "navbar-item" %>
             <%= link_to 'Ver modelos de produtos', product_models_path, class: "navbar-item" %>
+            <%= link_to 'Criar novo kit de produtos', new_product_bundle_path, class: "navbar-item" %>
+
           </div>
         </div>
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            Categoria de produto
+            Categorias
           </a>
           <div class="navbar-dropdown">
             <%= link_to 'Cadastrar categoria de produto', new_product_category_path, class: "navbar-item" %>
@@ -48,7 +47,7 @@
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            Galpão
+            Galpões
           </a>
           <div class="navbar-dropdown">
             <%= link_to 'Cadastrar novo galpão', new_warehouse_path, class: "navbar-item" %>
@@ -57,7 +56,7 @@
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            Fornecedor
+            Fornecedores
           </a>
           <div class="navbar-dropdown">
             <%= link_to 'Cadastrar novo fornecedor', new_supplier_path, class: "navbar-item" %>
@@ -66,10 +65,10 @@
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            Kit
+            Itens
           </a>
           <div class="navbar-dropdown">
-            <%= link_to 'Criar novo kit de produtos', new_product_bundle_path, class: "navbar-item" %>
+            <%= link_to 'Entrada de items', product_items_entry_path, class: "navbar-item" %>
           </div>
         </div>
       <% end %>
@@ -79,9 +78,14 @@
     <div class="navbar-end">
       <div class="navbar-item">
           <% if user_signed_in? %>
-            <%= "Olá, #{current_user.email}" %>&nbsp;|&nbsp;<%= link_to 'Sair', destroy_user_session_path, method: :delete, class: "button is-danger is-light" %>
+            <%= "Olá, #{current_user.name}" %>
+            &nbsp;
+            <%= button_to 'Sair', destroy_user_session_path, method: :delete,
+                                class: "button is-danger is-light is-small
+                                is-outlined is-rounded" %>
           <% else %>
-            <%= link_to 'Logar', new_user_session_path, class: "button is-primary" %>
+            <%= link_to 'Logar', new_user_session_path, class: "button is-primary
+                                 is-light is-outlined is-rounded" %>
           <% end %>
       </div>
     </div>

@@ -1,19 +1,24 @@
-<h1>Registra Entrada de Lote</h1>
+<h1 class="title">Registra Entrada de Lote</h1>
 
 <%= form_with url: product_items_entry_path do |form| %>
   <div>
-    <%= form.label :quantity, 'Quantidade' %>
-    <%= form.number_field :quantity, min: '1' %>
+    <%= form.label :quantity, 'Quantidade', class: "label" %>
+    <%= form.number_field :quantity, min: '1', class: "input is-small", style: 'width:200px' %>
   </div>
+  <br>
   <div>
-    <%= form.label :warehouse_id, 'Galpão de Destino' %>
-    <%= form.select :warehouse_id, options_from_collection_for_select(@warehouses, :id, :code) %>
+    <%= form.label :product_model_id, 'Produto', class: "label" %>
+    <%= form.collection_select :product_model_id, @product_models, :id, :name,
+                               {}, class: "select" %>
   </div>
+  <br>
   <div>
-    <%= form.label :product_model_id, 'Produto' %>
-    <%= form.collection_select :product_model_id, @product_models, :id, :name %>
+    <%= form.label :warehouse_id, 'Galpão de Destino', class: "label" %>
+    <%= form.select :warehouse_id, options_from_collection_for_select(@warehouses, :id, :code),
+                                   {}, class: "select" %>
   </div>
+  <br>
   <div>
-    <%= form.submit 'Confirmar' %>
+    <%= form.submit 'Confirmar', class: "button is-primary" %>
   </div>
 <% end%>

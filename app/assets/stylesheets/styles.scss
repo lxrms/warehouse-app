@@ -1,0 +1,49 @@
+
+a {
+  color: #EB7E70;
+}
+
+a:hover {
+  background-color: #EB7E70;
+  color: white;
+}
+
+body, p, h1, h2, h3, h4,
+.title, .subtitle, .label {
+  color: rgb(90, 90, 90);
+}
+input {
+  text-align: center;
+}
+
+.select {
+  padding-left: 10px;
+  padding-left: 10px;
+}
+
+.navbar-link {
+  color: #EB7E70
+}
+
+.navbar-link:hover {
+  color: #f0452f;
+  background-color: #EB7E70;
+}
+
+.navbar-link:not(.is-arrowless)::after {
+  border-color: #EB7E70;
+  margin-top: -.375em;
+  right: 1.125em;
+}
+
+.special-link {
+  color: inherit;
+  padding: 3px;
+}
+
+.special-link:hover {
+  background-color: black;
+  color: rgb(224, 224, 224);
+  border-radius: 3px;
+  padding: 3px;
+}
