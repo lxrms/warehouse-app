@@ -26,6 +26,24 @@ class ProductModelsController < ApplicationController
     end
   end
 
+  def edit
+    @product_model = ProductModel.find(params[:id])
+    @suppliers = Supplier.all
+    @product_categories = ProductCategory.all
+  end
+
+  def update
+    @product_model = ProductModel.find(params[:id])
+    @product_model.update(product_model_params)
+    if @product_model.update(product_model_params)
+      flash[:notice] = 'Modelo de produto atualizado com sucesso'
+      redirect_to @product_model
+    else
+      flash.now[:alert] = 'Não foi possível atualizar o modelo de produto'
+      render 'new'
+    end
+  end
+
   private
 
   def product_model_params

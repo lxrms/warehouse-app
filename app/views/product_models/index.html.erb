@@ -6,6 +6,7 @@
         <th>SKU</th>
         <th>Fornecedor</th>
         <th>Categoria</th>
+        <th>Edição</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +16,7 @@
           <td><%= pm.sku %></td>
           <td><%= link_to pm.supplier.fantasy_name, supplier_path(pm.supplier) %></td>
           <td><%= pm.product_category.name %></td>
+          <td><%= link_to 'Editar', edit_product_model_path(pm) %></td>
         </tr>
       <% end %>
     </tbody>

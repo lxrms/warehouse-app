@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :product_bundles,    only: %i[new create show]
   resources :product_categories, only: %i[new create]
-  resources :product_models,     only: %i[new create show index]
+  resources :product_models,     only: %i[new create show index edit update]
   resources :suppliers,          only: %i[new create show index]
   resources :warehouses,         only: %i[new create show edit update]
 
